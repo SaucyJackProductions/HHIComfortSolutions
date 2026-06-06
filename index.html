@@ -123,6 +123,20 @@
       box-shadow:var(--shadow);
     }
 
+
+    .text-heat-accent{
+      color:#ff5b1f;
+      background:linear-gradient(180deg,#ff8a2d 0%, #ff5b1f 42%, #b83218 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 10px 26px rgba(255,91,31,.24);
+    }
+
+    .brand-name .text-heat-accent{
+      text-shadow:0 8px 18px rgba(255,91,31,.18);
+    }
+
     .btn{
       position:relative;
       overflow:hidden;
@@ -1559,7 +1573,7 @@
           <div class="eyebrow">Hilton Head Island • Same-Day • 24/7</div>
 
           <h1>
-            Island Comfort.<br>
+            <span class="text-heat-accent">Island Comfort.</span><br>
             <span>Handled Fast.</span>
           </h1>
 
@@ -1581,7 +1595,7 @@
           <div class="hero-logo-lockup brand-logo-card">
             <img src="assets/images/brand/logo-round-icon.png" alt="HHI Climate Solutions full logo">
           </div>
-          <h3>Fast relief when the Lowcountry heat hits hard.</h3>
+          <h3>Fast relief when the <span class="text-heat-accent">Lowcountry heat hits hard.</span></h3>
 
           <ul>
             <li>Same-day AC repair, diagnostics, and tune-ups.</li>
