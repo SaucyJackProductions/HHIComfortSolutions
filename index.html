@@ -12,7 +12,7 @@
 
   <meta property="og:title" content="HHI Comfort Solutions | Island Comfort. Coastal Reliability.">
   <meta property="og:description" content="Fast, professional HVAC service for Hilton Head Island homes, villas, rentals, restaurants, and businesses.">
-  <meta property="og:image" content="https://hhicomfortsolution.com/HiltonHeadIslandCoastalComfort3.png">
+  <meta property="og:image" content="https://hhicomfortsolution.com/HiltonHeadIslandCoastalComfort3.png?v=hero-fixed-20260617">
   <meta property="og:url" content="https://hhicomfortsolution.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="HHI Comfort Solutions">
@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="HHI Comfort Solutions | Hilton Head HVAC Help">
   <meta name="twitter:description" content="Same-day HVAC, AC repair, heating, maintenance, and refrigeration service in Hilton Head Island.">
-  <meta name="twitter:image" content="https://hhicomfortsolution.com/HiltonHeadIslandCoastalComfort3.png">
+  <meta name="twitter:image" content="https://hhicomfortsolution.com/HiltonHeadIslandCoastalComfort3.png?v=hero-fixed-20260617">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,7 +78,6 @@
       --white: #ffffff;
       --soft-white: rgba(255,255,255,.86);
       --muted: rgba(255,255,255,.72);
-      --line: rgba(255,255,255,.14);
       --shadow: 0 22px 70px rgba(0,0,0,.28);
 
       --header-top: 62px;
@@ -304,17 +303,34 @@
       position: absolute;
       inset: 0;
       z-index: -3;
+      overflow: hidden;
+      background: #072943;
+    }
+
+    .hero-bg img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      transform: scale(1.02);
+    }
+
+    .hero-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
       background:
-        linear-gradient(90deg, rgba(2,23,38,.86) 0%, rgba(4,42,70,.74) 42%, rgba(2,21,35,.72) 100%),
-        url("HiltonHeadIslandCoastalComfort3.png");
-      background-size: cover;
-      background-position: center center;
+        linear-gradient(90deg, rgba(2,23,38,.86) 0%, rgba(4,42,70,.74) 42%, rgba(2,21,35,.72) 100%);
     }
 
     .hero-bg::after {
       content: "";
       position: absolute;
       inset: 0;
+      z-index: 2;
       background:
         radial-gradient(720px 420px at 18% 26%, rgba(0,167,255,.22), transparent 65%),
         radial-gradient(620px 420px at 82% 70%, rgba(255,118,36,.14), transparent 62%),
@@ -573,7 +589,11 @@
       min-height: 260px;
       aspect-ratio: 16 / 10;
       overflow: hidden;
-      background: #061522;
+      background:
+        linear-gradient(135deg, rgba(2,38,64,.88), rgba(2,13,24,.95)),
+        url("HiltonHeadIslandCoastalComfort3.png?v=fallback-20260617");
+      background-size: cover;
+      background-position: center;
     }
 
     .service-media img {
@@ -1241,10 +1261,6 @@
         align-items: flex-start;
       }
 
-      .hero-bg {
-        background-position: center center;
-      }
-
       .eyebrow {
         margin-bottom: 22px;
         padding: 13px 18px;
@@ -1367,7 +1383,7 @@
       <a class="brand" href="#top" aria-label="HHI Comfort Solutions Home">
         <img
           class="brand-logo"
-          src="HHIComfortSolutions-Logo3.png"
+          src="HHIComfortSolutions-Logo3.png?v=logo-fixed-20260617"
           alt="HHI Comfort Solutions logo"
         />
       </a>
@@ -1394,7 +1410,13 @@
 
   <main id="top">
     <section class="hero" id="home">
-      <div class="hero-bg" id="hero-bg"></div>
+      <div class="hero-bg" aria-hidden="true">
+        <img
+          src="HiltonHeadIslandCoastalComfort3.png?v=hero-fixed-20260617"
+          alt=""
+          onerror="this.onerror=null; this.src='HiltonHeadIslandCoastalComfort3.png';"
+        />
+      </div>
 
       <div class="wrap hero-grid">
         <div class="hero-copy reveal">
@@ -1423,7 +1445,11 @@
 
         <aside class="hero-card reveal">
           <div class="hero-card-logo">
-            <img src="HHIComfortSolutions-Logo3.png" alt="HHI Comfort Solutions logo">
+            <img
+              src="HHIComfortSolutions-Logo3.png?v=logo-fixed-20260617"
+              alt="HHI Comfort Solutions logo"
+              onerror="this.onerror=null; this.src='HHIComfortSolutions-Logo1.png';"
+            >
           </div>
 
           <h3>Same-day comfort help when the Lowcountry heat hits.</h3>
@@ -1479,9 +1505,11 @@
         <div class="service-grid">
           <article class="service-card reveal">
             <div class="service-media">
-              <img 
-                src="HiltonHeadIslandCoastalComfort2.png" 
-                alt="HHI Comfort Solutions AC repair service in Hilton Head Island">
+              <img
+                src="HiltonHeadIslandCoastalComfort2.png?v=service-fixed-20260617"
+                alt="HHI Comfort Solutions AC repair service in Hilton Head Island"
+                onerror="this.onerror=null; this.src='HiltonHeadIslandCoastalComfort3.png?v=fallback-20260617';"
+              >
               <div class="service-icon">❄️</div>
             </div>
             <div class="service-copy">
@@ -1497,9 +1525,11 @@
 
           <article class="service-card reveal">
             <div class="service-media">
-              <img 
-                src="HiltonHeadIslandCoastalComfort4.png" 
-                alt="HHI Comfort Solutions heating and heat pump service in Hilton Head Island">
+              <img
+                src="HiltonHeadIslandCoastalComfort3.png?v=service-fixed-20260617"
+                alt="HHI Comfort Solutions heating and heat pump service in Hilton Head Island"
+                onerror="this.onerror=null; this.src='HiltonHeadIslandCoastalComfort2.png?v=fallback-20260617';"
+              >
               <div class="service-icon">🔥</div>
             </div>
             <div class="service-copy">
@@ -1514,9 +1544,11 @@
 
           <article class="service-card reveal">
             <div class="service-media">
-              <img 
-                src="HiltonHeadIslandCoastalComfort5.png" 
-                alt="HHI Comfort Solutions commercial refrigeration service in Hilton Head Island">
+              <img
+                src="HiltonHeadIslandCoastalComfort4.png?v=service-fixed-20260617"
+                alt="HHI Comfort Solutions commercial refrigeration service in Hilton Head Island"
+                onerror="this.onerror=null; this.src='HiltonHeadIslandCoastalComfort3.png?v=fallback-20260617';"
+              >
               <div class="service-icon">🧊</div>
             </div>
             <div class="service-copy">
@@ -1532,9 +1564,11 @@
 
           <article class="service-card reveal">
             <div class="service-media">
-              <img 
-                src="HiltonHeadIslandCoastalComfort1.png" 
-                alt="HHI Comfort Solutions preventative HVAC maintenance in Hilton Head Island">
+              <img
+                src="HiltonHeadIslandCoastalComfort5.png?v=service-fixed-20260617"
+                alt="HHI Comfort Solutions preventative HVAC maintenance in Hilton Head Island"
+                onerror="this.onerror=null; this.src='HiltonHeadIslandCoastalComfort3.png?v=fallback-20260617';"
+              >
               <div class="service-icon">🛡️</div>
             </div>
             <div class="service-copy">
