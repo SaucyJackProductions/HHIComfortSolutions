@@ -836,6 +836,237 @@
       margin-top: 4px;
     }
 
+
+
+    /* Google Workspace CRM + Booking System */
+    .btn-full {
+      width: 100%;
+    }
+
+    .booking-section {
+      background:
+        radial-gradient(circle at 18% 12%, rgba(12, 167, 255, 0.13), transparent 34%),
+        linear-gradient(180deg, var(--soft) 0%, #ffffff 100%);
+      border-top: 1px solid rgba(6, 43, 95, 0.08);
+      border-bottom: 1px solid rgba(6, 43, 95, 0.08);
+    }
+
+    .booking-head {
+      max-width: 900px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .booking-panel,
+    .lead-panel {
+      background: white;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(6, 43, 95, 0.09);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .booking-panel {
+      padding: 34px;
+      position: sticky;
+      top: 118px;
+    }
+
+    .booking-panel h3,
+    .lead-panel h3 {
+      color: var(--navy);
+      font-size: 1.72rem;
+      line-height: 1.08;
+      margin-bottom: 10px;
+      font-weight: 950;
+      letter-spacing: -0.035em;
+    }
+
+    .booking-panel p,
+    .lead-panel p {
+      color: var(--gray);
+      font-weight: 650;
+    }
+
+    .process-list {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .process-list div {
+      padding: 14px 15px;
+      border-radius: 16px;
+      background: var(--soft);
+      border: 1px solid rgba(6, 43, 95, 0.09);
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .urgent-box {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 20px;
+      background: #fff7ed;
+      border: 1px solid rgba(255, 106, 19, 0.24);
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .urgent-box strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 6px;
+      font-size: 1.06rem;
+    }
+
+    .calendar-embed-wrap {
+      min-height: 685px;
+      background: #f7fbff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(6, 43, 95, 0.09);
+      box-shadow: var(--shadow);
+    }
+
+    .calendar-embed-wrap iframe {
+      width: 100%;
+      height: 735px;
+      border: 0;
+      display: block;
+      background: white;
+    }
+
+    .calendar-placeholder {
+      min-height: 685px;
+      padding: 40px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(12, 167, 255, 0.14), transparent 34%),
+        white;
+    }
+
+    .calendar-placeholder h3 {
+      color: var(--navy);
+      font-size: clamp(1.8rem, 3vw, 2.65rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      margin-bottom: 14px;
+      font-weight: 950;
+    }
+
+    .calendar-placeholder p {
+      color: var(--gray);
+      max-width: 590px;
+      margin: 0 auto 22px;
+      font-weight: 650;
+    }
+
+    .placeholder-code {
+      margin-top: 16px;
+      display: inline-block;
+      padding: 10px 13px;
+      border-radius: 12px;
+      background: #edf5fb;
+      border: 1px dashed rgba(8, 119, 201, 0.42);
+      color: var(--navy);
+      font-size: 0.88rem;
+      font-weight: 900;
+    }
+
+    .lead-panel {
+      padding: 34px;
+    }
+
+    .lead-panel .form-intro {
+      margin-bottom: 22px;
+    }
+
+    .crm-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    #serviceRequestForm label {
+      display: grid;
+      gap: 7px;
+      color: var(--navy);
+      font-size: 0.92rem;
+      font-weight: 900;
+    }
+
+    #serviceRequestForm .consent {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--gray);
+      font-weight: 650;
+      font-size: 0.9rem;
+    }
+
+    #serviceRequestForm .consent input {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      padding: 0;
+    }
+
+    .success-message,
+    .error-message {
+      display: none;
+      padding: 16px;
+      border-radius: 16px;
+      font-weight: 850;
+      margin-bottom: 16px;
+    }
+
+    .success-message {
+      background: #e9fff3;
+      color: #075b2b;
+      border: 1px solid rgba(18, 142, 73, 0.24);
+    }
+
+    .error-message {
+      background: #fff1f1;
+      color: #8a1b1b;
+      border: 1px solid rgba(170, 20, 20, 0.2);
+    }
+
+    .mobile-sticky {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1002;
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      border-top: 1px solid rgba(6, 43, 95, 0.1);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 -14px 34px rgba(3, 25, 54, 0.11);
+    }
+
+    .mobile-sticky .btn {
+      min-height: 48px;
+      padding: 12px 10px;
+      font-size: 0.88rem;
+    }
+
+
     .faq {
       background: white;
     }
@@ -963,8 +1194,13 @@
       .split,
       .cta-box,
       .contact-grid,
+      .booking-grid,
       .footer-grid {
         grid-template-columns: 1fr;
+      }
+
+      .booking-panel {
+        position: static;
       }
 
       .hero {
@@ -1014,14 +1250,31 @@
         font-size: clamp(3rem, 15vw, 4.55rem);
       }
 
+      body {
+        padding-bottom: 76px;
+      }
+
       .hero-proof,
       .service-grid,
       .coastal-grid,
       .reviews,
       .gallery-grid,
       .faq-grid,
-      .form-row {
+      .form-row,
+      .crm-form-grid {
         grid-template-columns: 1fr;
+      }
+
+      .calendar-embed-wrap iframe {
+        height: 705px;
+      }
+
+      .calendar-placeholder {
+        padding: 26px;
+      }
+
+      .mobile-sticky {
+        display: grid;
       }
 
       .emergency-strip {
@@ -1054,7 +1307,7 @@
       }
 
       .floating-call {
-        display: inline-flex;
+        display: none;
       }
     }
   </style>
@@ -1100,6 +1353,7 @@
 
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#services">Services</a>
+        <a href="#schedule-service">Schedule</a>
         <a href="#coastal">Why HHI</a>
         <a href="#residential">Residential</a>
         <a href="#commercial">Commercial</a>
@@ -1110,6 +1364,7 @@
 
       <div class="nav-actions">
         <a class="btn btn-blue" href="tel:18039205349">Call Now</a>
+        <a class="btn btn-primary" href="#schedule-service">Free Estimate</a>
       </div>
     </div>
   </header>
@@ -1131,7 +1386,7 @@
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="tel:18039205349">Call 803-920-5349</a>
-          <a class="btn btn-white" href="#contact">Request Service</a>
+          <a class="btn btn-white" href="#schedule-service">Schedule Free Estimate</a>
         </div>
 
         <div class="hero-proof">
@@ -1157,6 +1412,9 @@
           <div class="mini">Need service now?</div>
           <h3>When comfort matters, the next move should feel obvious.</h3>
           <p>Call HHI Comfort Solution for responsive local service, clear communication, and a professional experience that makes the repair process feel simple from the first conversation.</p>
+          <div style="margin-top: 18px;">
+            <a class="btn btn-white" href="#schedule-service">Schedule Free Estimate</a>
+          </div>
         </div>
 
         <div class="strip-card">
@@ -1172,6 +1430,52 @@
         </div>
       </div>
     </div>
+
+
+
+    <section class="booking-section" id="schedule-service">
+      <div class="container">
+        <div class="booking-head">
+          <div class="section-kicker">Google Workspace Booking System</div>
+          <h2 class="section-title">Schedule your free HVAC estimate.</h2>
+          <p class="section-lead">
+            Choose your preferred appointment time and tell us what is going on. Our team will call shortly to verify your information, confirm the service address, and lock in the final appointment window.
+          </p>
+        </div>
+
+        <div class="booking-grid">
+          <aside class="booking-panel">
+            <h3>How this works</h3>
+            <p>The online calendar creates an appointment request immediately, but the final appointment is confirmed by phone so we can protect your time, verify the address, and dispatch correctly.</p>
+
+            <div class="process-list">
+              <div>1. Pick your preferred day and time.</div>
+              <div>2. Add your service details.</div>
+              <div>3. We receive the alert instantly.</div>
+              <div>4. We call ASAP to confirm.</div>
+            </div>
+
+            <div class="urgent-box">
+              <strong>Emergency HVAC issue?</strong>
+              For urgent AC, heating, or refrigeration problems, call directly so we can respond as quickly as possible.
+              <br /><br />
+              <a class="btn btn-blue btn-full" href="tel:18039205349">Call 803-920-5349</a>
+            </div>
+          </aside>
+
+          <div class="calendar-embed-wrap" id="calendarEmbedWrap">
+            <div class="calendar-placeholder" id="calendarPlaceholder">
+              <div>
+                <h3>Google Calendar booking goes here.</h3>
+                <p>Replace the placeholder booking URL in the code with your Google Calendar Appointment Schedule link. Once added, the live calendar will appear here and customers can choose a preferred day and time.</p>
+                <a class="btn btn-primary" id="calendarFallbackButton" href="#contact">Use Service Request Form</a>
+                <div class="placeholder-code">Replace: GOOGLE_CALENDAR_BOOKING_URL</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="services" id="services">
       <div class="container center">
@@ -1461,7 +1765,7 @@
 
             <div class="hero-actions">
               <a class="btn btn-primary" href="tel:18039205349">Call 803-920-5349</a>
-              <a class="btn btn-white" href="mailto:info@hhicomfortsolution.com">Email Us</a>
+              <a class="btn btn-white" href="#schedule-service">Schedule Free Estimate</a>
             </div>
           </div>
 
@@ -1476,7 +1780,7 @@
           <div class="section-kicker">Contact HHI Comfort Solution</div>
           <h2 class="section-title">Tell us what is going on. We will help you take it from there.</h2>
           <p class="section-lead">
-            For the fastest response, call now. For non-emergency service, send your details and we will follow up with the next step as quickly as possible.
+            For the fastest response, call now. For non-emergency service, use the live calendar above or send your details below. Every online request is pending until we call to verify your information and confirm the appointment window.
           </p>
         </div>
 
@@ -1515,36 +1819,114 @@
             </div>
           </div>
 
-          <div class="contact-card">
-            <form action="mailto:info@hhicomfortsolution.com" method="post" enctype="text/plain">
-              <div class="form-row">
-                <input type="text" name="Name" placeholder="Your Name" required />
-                <input type="tel" name="Phone" placeholder="Phone Number" required />
+          <div class="contact-card lead-panel">
+            <h3>Backup Service Request Form</h3>
+            <p class="form-intro">
+              This form is built for your Google Sheets CRM through Google Apps Script. The live calendar above should be the main scheduling path, and this form captures the full customer/service details for follow-up.
+            </p>
+
+            <div class="success-message" id="successMessage">
+              Thank you. Your service request has been received. Someone from HHI Comfort Solution will be reaching out shortly to confirm your information and appointment details.
+            </div>
+
+            <div class="error-message" id="errorMessage">
+              Something did not submit correctly. Please call 803-920-5349 or email info@hhicomfortsolution.com.
+            </div>
+
+            <form id="serviceRequestForm">
+              <div class="crm-form-grid">
+                <label>First Name
+                  <input type="text" name="firstName" autocomplete="given-name" required />
+                </label>
+                <label>Last Name
+                  <input type="text" name="lastName" autocomplete="family-name" required />
+                </label>
               </div>
 
-              <div class="form-row">
-                <input type="email" name="Email" placeholder="Email Address" />
-                <select name="Service Needed" required>
-                  <option value="">Service Needed</option>
-                  <option value="AC Repair">AC Repair</option>
-                  <option value="Cooling Service">Cooling Service</option>
-                  <option value="Heating Service">Heating Service</option>
-                  <option value="Maintenance">Maintenance</option>
-                  <option value="Installation">Installation</option>
-                  <option value="Refrigeration">Refrigeration</option>
-                  <option value="Emergency Service">Emergency Service</option>
-                  <option value="Other">Other</option>
+              <div class="crm-form-grid">
+                <label>Phone Number
+                  <input type="tel" name="phone" autocomplete="tel" required />
+                </label>
+                <label>Email Address
+                  <input type="email" name="email" autocomplete="email" required />
+                </label>
+              </div>
+
+              <label>Service Address
+                <input type="text" name="address" autocomplete="street-address" required />
+              </label>
+
+              <div class="crm-form-grid">
+                <label>City
+                  <input type="text" name="city" value="Hilton Head Island" required />
+                </label>
+                <label>ZIP Code
+                  <input type="text" name="zip" autocomplete="postal-code" inputmode="numeric" required />
+                </label>
+              </div>
+
+              <div class="crm-form-grid">
+                <label>Service Needed
+                  <select name="serviceNeeded" required>
+                    <option value="">Select one</option>
+                    <option>AC Repair</option>
+                    <option>Cooling Service</option>
+                    <option>Heating Service</option>
+                    <option>HVAC Replacement Estimate</option>
+                    <option>New Installation Estimate</option>
+                    <option>Preventative Maintenance</option>
+                    <option>Refrigeration</option>
+                    <option>Thermostat Issue</option>
+                    <option>Ductwork / Airflow Issue</option>
+                    <option>Emergency Service</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+
+                <label>Urgency
+                  <select name="urgency" required>
+                    <option value="">Select one</option>
+                    <option>Emergency — Need help ASAP</option>
+                    <option>Today</option>
+                    <option>Tomorrow</option>
+                    <option>This Week</option>
+                    <option>Planning Ahead / Free Estimate</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="crm-form-grid">
+                <label>Preferred Date
+                  <input type="date" name="preferredDate" />
+                </label>
+                <label>Preferred Time
+                  <input type="time" name="preferredTime" />
+                </label>
+              </div>
+
+              <label>Property / Customer Type
+                <select name="customerType">
+                  <option>Homeowner</option>
+                  <option>Property Manager</option>
+                  <option>Business Owner</option>
+                  <option>Tenant</option>
+                  <option>Other</option>
                 </select>
-              </div>
+              </label>
 
-              <input type="text" name="Property Location" placeholder="Property Location / Neighborhood" />
+              <label>Brief Description
+                <textarea name="description" placeholder="Tell us what the system is doing, when the issue started, and any access/gate instructions." required></textarea>
+              </label>
 
-              <textarea name="Message" placeholder="Tell us what is going on with your system"></textarea>
+              <label class="consent">
+                <input type="checkbox" name="consent" required />
+                <span>I agree that HHI Comfort Solution may contact me by phone, text, or email about my service request. I understand online requests are pending until confirmed by phone.</span>
+              </label>
 
-              <button class="btn btn-primary" type="submit">Send Service Request</button>
+              <button class="btn btn-primary btn-full" type="submit" id="submitButton">Send Service Request</button>
 
               <p class="form-note">
-                For emergency service, call directly at 803-920-5349.
+                For emergency service, call directly at <a href="tel:18039205349">803-920-5349</a>.
               </p>
             </form>
           </div>
@@ -1604,6 +1986,7 @@
         <div>
           <h4>Company</h4>
           <a href="#coastal">Why HHI</a>
+          <a href="#schedule-service">Schedule Free Estimate</a>
           <a href="#residential">Residential</a>
           <a href="#commercial">Commercial</a>
           <a href="#reviews">Reviews</a>
@@ -1626,5 +2009,134 @@
   </footer>
 
   <a class="btn btn-primary floating-call" href="tel:18039205349">Call Now</a>
+
+  <div class="mobile-sticky">
+    <a class="btn btn-blue" href="tel:18039205349">Call Now</a>
+    <a class="btn btn-primary" href="#schedule-service">Free Estimate</a>
+  </div>
+
+  <script>
+    // =============================
+    // GOOGLE WORKSPACE CRM SETTINGS
+    // =============================
+
+    // Paste your Google Calendar Appointment Schedule booking page URL here.
+    // Example: https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ...
+    const GOOGLE_CALENDAR_BOOKING_URL = "PASTE_YOUR_GOOGLE_CALENDAR_APPOINTMENT_SCHEDULE_URL_HERE";
+
+    // Paste your deployed Google Apps Script Web App URL here.
+    // This powers the backup service request form into Google Sheets + Gmail/Chat owner alerts.
+    const GOOGLE_APPS_SCRIPT_WEB_APP_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+    const BUSINESS_PHONE = "803-920-5349";
+    const BUSINESS_EMAIL = "info@hhicomfortsolution.com";
+
+    function isPlaceholder(value) {
+      return !value || value.includes("PASTE_YOUR_");
+    }
+
+    function loadGoogleCalendarBooking() {
+      const wrap = document.getElementById("calendarEmbedWrap");
+      const fallbackButton = document.getElementById("calendarFallbackButton");
+
+      if (!wrap || isPlaceholder(GOOGLE_CALENDAR_BOOKING_URL)) return;
+
+      const iframe = document.createElement("iframe");
+      iframe.src = GOOGLE_CALENDAR_BOOKING_URL;
+      iframe.loading = "lazy";
+      iframe.referrerPolicy = "no-referrer-when-downgrade";
+      iframe.title = "Schedule a free HVAC estimate with HHI Comfort Solution";
+      wrap.innerHTML = "";
+      wrap.appendChild(iframe);
+
+      if (fallbackButton) fallbackButton.href = GOOGLE_CALENDAR_BOOKING_URL;
+    }
+
+    function getFormData(form) {
+      const data = Object.fromEntries(new FormData(form).entries());
+      data.consent = form.consent && form.consent.checked ? "Yes" : "No";
+      data.leadSource = "Website Service Request Form";
+      data.submittedAt = new Date().toISOString();
+      data.business = "HHI Comfort Solution";
+      data.website = "hhicomfortsolution.com";
+      return data;
+    }
+
+    function buildMailto(data) {
+      const subject = encodeURIComponent("New HHI Comfort Solution Service Request");
+      const body = encodeURIComponent(
+        `NEW WEBSITE SERVICE REQUEST\n\n` +
+        `Name: ${data.firstName || ""} ${data.lastName || ""}\n` +
+        `Phone: ${data.phone || ""}\n` +
+        `Email: ${data.email || ""}\n` +
+        `Address: ${data.address || ""}, ${data.city || ""}, ${data.zip || ""}\n` +
+        `Service Needed: ${data.serviceNeeded || ""}\n` +
+        `Urgency: ${data.urgency || ""}\n` +
+        `Preferred Date: ${data.preferredDate || ""}\n` +
+        `Preferred Time: ${data.preferredTime || ""}\n` +
+        `Customer Type: ${data.customerType || ""}\n\n` +
+        `Description:\n${data.description || ""}\n\n` +
+        `Action: Call customer ASAP to confirm appointment and verify details.`
+      );
+      return `mailto:${BUSINESS_EMAIL}?subject=${subject}&body=${body}`;
+    }
+
+    async function submitToGoogleAppsScript(data) {
+      // Google Apps Script Web Apps often return responses that static websites cannot read because of CORS.
+      // no-cors sends the request successfully without the browser blocking the lead submission.
+      await fetch(GOOGLE_APPS_SCRIPT_WEB_APP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(data)
+      });
+    }
+
+    function handleServiceForm() {
+      const form = document.getElementById("serviceRequestForm");
+      const success = document.getElementById("successMessage");
+      const error = document.getElementById("errorMessage");
+      const submitButton = document.getElementById("submitButton");
+      if (!form) return;
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (success) success.style.display = "none";
+        if (error) error.style.display = "none";
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+
+        const data = getFormData(form);
+
+        try {
+          if (isPlaceholder(GOOGLE_APPS_SCRIPT_WEB_APP_URL)) {
+            // Backup behavior before Apps Script is connected.
+            window.location.href = buildMailto(data);
+            if (success) {
+              success.style.display = "block";
+              success.textContent = "Your email app is opening with your service request. Please send it, or call 803-920-5349 for urgent service.";
+            }
+          } else {
+            await submitToGoogleAppsScript(data);
+            form.reset();
+            if (success) {
+              success.style.display = "block";
+              success.textContent = "Thank you. Your service request has been received. Someone from HHI Comfort Solution will be reaching out shortly to confirm your information and appointment details.";
+            }
+          }
+        } catch (err) {
+          console.error(err);
+          if (error) error.style.display = "block";
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = "Send Service Request";
+        }
+      });
+    }
+
+    loadGoogleCalendarBooking();
+    handleServiceForm();
+  </script>
+
 </body>
 </html>
