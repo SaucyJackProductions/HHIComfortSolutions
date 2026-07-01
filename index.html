@@ -2022,7 +2022,23 @@
 
     // Paste your Google Calendar Appointment Schedule booking page URL here.
     // Example: https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ...
-    const GOOGLE_CALENDAR_BOOKING_URL = "PASTE_YOUR_GOOGLE_CALENDAR_APPOINTMENT_SCHEDULE_URL_HERE";
+    const GOOGLE_CALENDAR_BOOKING_URL = "<!-- Google Calendar Appointment Scheduling begin -->
+<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+<script>
+(function() {
+  var target = document.currentScript;
+  window.addEventListener('load', function() {
+    calendar.schedulingButton.load({
+      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3WbSwIl06ViEmRKPqEncUmUgV2I0IgNSAHXbrhuxKKTsVnrvv7GRaYNuvoTb8-1hEi62dDD_xP?gv=true',
+      color: '#039BE5',
+      label: 'Book an appointment',
+      target,
+    });
+  });
+})();
+</script>
+<!-- end Google Calendar Appointment Scheduling -->";
 
     // Paste your deployed Google Apps Script Web App URL here.
     // This powers the backup service request form into Google Sheets + Gmail/Chat owner alerts.
