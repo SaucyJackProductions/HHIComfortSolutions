@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1464,14 +1465,16 @@
           </aside>
 
           <div class="calendar-embed-wrap" id="calendarEmbedWrap">
-            <div class="calendar-placeholder" id="calendarPlaceholder">
-              <div>
-                <h3>Google Calendar booking goes here.</h3>
-                <p>Replace the placeholder booking URL in the code with your Google Calendar Appointment Schedule link. Once added, the live calendar will appear here and customers can choose a preferred day and time.</p>
-                <a class="btn btn-primary" id="calendarFallbackButton" href="#contact">Use Service Request Form</a>
-                <div class="placeholder-code">Replace: GOOGLE_CALENDAR_BOOKING_URL</div>
-              </div>
-            </div>
+            <!-- Google Calendar Appointment Scheduling begin -->
+            <iframe
+              src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3WbSwIl06ViEmRKPqEncUmUgV2I0IgNSAHXbrhuxKKTsVnrvv7GRaYNuvoTb8-1hEi62dDD_xP?gv=true"
+              style="border: 0;"
+              width="100%"
+              height="760"
+              frameborder="0"
+              title="Schedule a free HVAC estimate with HHI Comfort Solution">
+            </iframe>
+            <!-- end Google Calendar Appointment Scheduling -->
           </div>
         </div>
       </div>
@@ -2022,8 +2025,7 @@
 
     // Paste your Google Calendar Appointment Schedule booking page URL here.
     // Example: https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ...
-    const GOOGLE_CALENDAR_BOOKING_URL = "https://calendar.app.google/uEEqoVo9hbmoWcFD8
-    ";
+    const GOOGLE_CALENDAR_BOOKING_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3WbSwIl06ViEmRKPqEncUmUgV2I0IgNSAHXbrhuxKKTsVnrvv7GRaYNuvoTb8-1hEi62dDD_xP?gv=true";
 
     // Paste your deployed Google Apps Script Web App URL here.
     // This powers the backup service request form into Google Sheets + Gmail/Chat owner alerts.
