@@ -1829,7 +1829,7 @@
             </p>
 
             <div class="success-message" id="successMessage">
-              Thank you. Your service request has been received. Someone from HHI Comfort Solution will be reaching out shortly to confirm your information and appointment details.
+              Thank you. Your service request has been received and sent to our HHI Comfort Solution CRM. Someone will be reaching out shortly to confirm your information and appointment details.
             </div>
 
             <div class="error-message" id="errorMessage">
@@ -2029,7 +2029,7 @@
 
     // Paste your deployed Google Apps Script Web App URL here.
     // This powers the backup service request form into Google Sheets + Gmail/Chat owner alerts.
-    const GOOGLE_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/1R1dKr1Oj6H_Afk7LiGBN8Wgi5byhFfHnthw7gJIOVS0/edit?pli=1&gid=0#gid=0/exec";
+    const GOOGLE_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyV-Z4_tast2xaA8PY5ZyrFzZuEzvXHoOOICL7vxvPG5UVMm1ZXuyFSq2fWk_KiDVz3fQ/exec";
 
     const BUSINESS_PHONE = "803-920-5349";
     const BUSINESS_EMAIL = "info@hhicomfortsolution.com";
@@ -2124,7 +2124,7 @@
             form.reset();
             if (success) {
               success.style.display = "block";
-              success.textContent = "Thank you. Your service request has been received. Someone from HHI Comfort Solution will be reaching out shortly to confirm your information and appointment details.";
+              success.textContent = "Thank you. Your service request has been received and sent to our HHI Comfort Solution CRM. Someone will be reaching out shortly to confirm your information and appointment details.";
             }
           }
         } catch (err) {
