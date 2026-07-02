@@ -1829,7 +1829,7 @@
             </p>
 
             <div class="success-message" id="successMessage">
-              Thank you. Your service request has been received. Our team will be in touch as soon as possible to confirm your information, review the details, and lock in the appointment window.
+              Thank you — your service request has been received. We appreciate you reaching out to HHI Comfort Solution. A member of our team will be in touch as soon as possible to confirm your information, review the details, verify the service address, and lock in the best appointment window.
             </div>
 
             <div class="error-message" id="errorMessage">
@@ -1908,7 +1908,7 @@
                   <input type="date" name="preferredDate" />
                 </label>
                 <label>Preferred Time
-                  <input type="text" name="preferredTime" placeholder="Example: 12:30 PM" autocomplete="off" />
+                  <input type="text" name="preferredTime" placeholder="Example: 12:30 PM" autocomplete="off" inputmode="text" />
                 </label>
               </div>
 
@@ -2027,52 +2027,18 @@
 
   <script>
     // ==========================================================
-    // HHI COMFORT SOLUTION — CRM FORM CONNECTION
-    // Website backup form → Google Apps Script → Google Sheets
+    // HHI COMFORT SOLUTION — WORKING DIRECT CRM FORM POST
+    // Website form → Google Apps Script Web App → Google Sheets + Emails
     // ==========================================================
 
-    // IMPORTANT:
-    // This is the live Google Apps Script Web App URL for the backup service request form.
-    // If you redeploy Apps Script and Google gives you a different /exec URL, replace this value.
-    const HHI_CRM_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyV-Z4_tast2xaA8PY5ZyrFzZuEzvXHoOOICL7vxvPG5UVMm1ZXuyFSq2fWk_KiDVz3fQ/exec";
+    // IMPORTANT: This must match your CURRENT Apps Script Web App URL ending in /exec.
+    // If you deploy a new Apps Script Web App and receive a different URL, replace this value.
+    const GOOGLE_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyV-Z4_tast2xaA8PY5ZyrFzZuEzvXHoOOICL7vxvPG5UVMm1ZXuyFSq2fWk_KiDVz3fQ/exec";
 
     function generateClientLeadId() {
       const stamp = new Date().toISOString().replace(/[-:.TZ]/g, "").slice(0, 14);
       const random = Math.random().toString(36).slice(2, 8).toUpperCase();
       return "WEB-" + stamp + "-" + random;
-    }
-
-    function showSuccess(form, success, error, submitButton) {
-      if (form) form.reset();
-      if (error) error.style.display = "none";
-
-      if (success) {
-        success.style.display = "block";
-        success.textContent =
-          "Thank you. Your service request has been received. Our team will be in touch as soon as possible to confirm your information, review the details, and lock in the appointment window.";
-        success.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = "Send Service Request";
-      }
-    }
-
-    function showError(success, error, submitButton) {
-      if (success) success.style.display = "none";
-
-      if (error) {
-        error.style.display = "block";
-        error.textContent =
-          "Something did not submit correctly. Please call 803-920-5349 or email info@hhicomfortsolution.com so we can help right away.";
-        error.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = "Send Service Request";
-      }
     }
 
     function handleServiceForm() {
@@ -2082,45 +2048,15 @@
       const submitButton = document.getElementById("submitButton");
       const submittedAtField = document.getElementById("submittedAtField");
       const clientLeadIdField = document.getElementById("clientLeadIdField");
-      const hiddenFrame = document.getElementById("hiddenSubmitFrame");
 
       if (!form) return;
 
-      form.setAttribute("action", HHI_CRM_WEB_APP_URL);
+      // Keep the form action controlled from one place.
+      form.setAttribute("action", GOOGLE_APPS_SCRIPT_WEB_APP_URL);
       form.setAttribute("method", "POST");
       form.setAttribute("target", "hiddenSubmitFrame");
 
-      let submitted = false;
-      let successTimer = null;
-
-      // Apps Script can send a confirmation message back. If Safari/Google blocks that message,
-      // the iframe load + fallback timer below still shows the correct success message.
-      window.addEventListener("message", function (event) {
-        const data = event.data || {};
-        if (!data || data.source !== "HHI_COMFORT_CRM") return;
-
-        submitted = false;
-        if (successTimer) clearTimeout(successTimer);
-
-        if (data.ok) {
-          showSuccess(form, success, error, submitButton);
-        } else {
-          showError(success, error, submitButton);
-        }
-      });
-
-      if (hiddenFrame) {
-        hiddenFrame.addEventListener("load", function () {
-          if (!submitted) return;
-          submitted = false;
-          if (successTimer) clearTimeout(successTimer);
-          showSuccess(form, success, error, submitButton);
-        });
-      }
-
       form.addEventListener("submit", function () {
-        submitted = true;
-
         if (submittedAtField) submittedAtField.value = new Date().toISOString();
         if (clientLeadIdField) clientLeadIdField.value = generateClientLeadId();
 
@@ -2132,14 +2068,22 @@
           submitButton.textContent = "Sending...";
         }
 
-        // This is intentional: your Google Sheet + email backend is working. Some browsers do not
-        // reliably pass the Google iframe confirmation back to the visible page, so we show success
-        // after the direct form POST has had time to reach Apps Script.
-        successTimer = setTimeout(function () {
-          if (!submitted) return;
-          submitted = false;
-          showSuccess(form, success, error, submitButton);
-        }, 2600);
+        // Direct form POST is the method that already worked for your Google Sheet + owner email.
+        // This confirmation appears after Apps Script has time to receive the submission.
+        setTimeout(function () {
+          form.reset();
+
+          if (success) {
+            success.style.display = "block";
+            success.textContent = "Thank you — your service request has been received. We appreciate you reaching out to HHI Comfort Solution. A member of our team will be in touch as soon as possible to confirm your information, review the details, verify the service address, and lock in the best appointment window.";
+            success.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Service Request";
+          }
+        }, 2200);
       });
     }
 
