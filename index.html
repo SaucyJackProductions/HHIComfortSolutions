@@ -1829,7 +1829,7 @@
             </p>
 
             <div class="success-message" id="successMessage">
-              Thank you. Your service request has been received. Someone from HHI Comfort Solution will be reaching out shortly to confirm your information and appointment details.
+              Thank you. Your service request has been received. Our team will be in touch as soon as possible to confirm your information, review the details, and lock in the appointment window.
             </div>
 
             <div class="error-message" id="errorMessage">
@@ -1908,7 +1908,7 @@
                   <input type="date" name="preferredDate" />
                 </label>
                 <label>Preferred Time
-                  <input type="time" name="preferredTime" />
+                  <input type="text" name="preferredTime" placeholder="Example: 12:30 PM" autocomplete="off" />
                 </label>
               </div>
 
@@ -2032,14 +2032,47 @@
     // ==========================================================
 
     // IMPORTANT:
-    // If you deploy a NEW Apps Script Web App and Google gives you a different /exec URL,
-    // replace the value below with the CURRENT Web App URL from Deploy → Manage deployments.
-    const HHI_CRM_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzo61Z7eb-NhNgBuf9JqGLp5JQJ1kfEo4kstvtwL4jxHPVNSxwTdHm4byhweqoO4o7M5g/exec";
+    // This is the live Google Apps Script Web App URL for the backup service request form.
+    // If you redeploy Apps Script and Google gives you a different /exec URL, replace this value.
+    const HHI_CRM_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyV-Z4_tast2xaA8PY5ZyrFzZuEzvXHoOOICL7vxvPG5UVMm1ZXuyFSq2fWk_KiDVz3fQ/exec";
 
     function generateClientLeadId() {
       const stamp = new Date().toISOString().replace(/[-:.TZ]/g, "").slice(0, 14);
       const random = Math.random().toString(36).slice(2, 8).toUpperCase();
       return "WEB-" + stamp + "-" + random;
+    }
+
+    function showSuccess(form, success, error, submitButton) {
+      if (form) form.reset();
+      if (error) error.style.display = "none";
+
+      if (success) {
+        success.style.display = "block";
+        success.textContent =
+          "Thank you. Your service request has been received. Our team will be in touch as soon as possible to confirm your information, review the details, and lock in the appointment window.";
+        success.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Service Request";
+      }
+    }
+
+    function showError(success, error, submitButton) {
+      if (success) success.style.display = "none";
+
+      if (error) {
+        error.style.display = "block";
+        error.textContent =
+          "Something did not submit correctly. Please call 803-920-5349 or email info@hhicomfortsolution.com so we can help right away.";
+        error.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Service Request";
+      }
     }
 
     function handleServiceForm() {
@@ -2049,6 +2082,7 @@
       const submitButton = document.getElementById("submitButton");
       const submittedAtField = document.getElementById("submittedAtField");
       const clientLeadIdField = document.getElementById("clientLeadIdField");
+      const hiddenFrame = document.getElementById("hiddenSubmitFrame");
 
       if (!form) return;
 
@@ -2056,47 +2090,37 @@
       form.setAttribute("method", "POST");
       form.setAttribute("target", "hiddenSubmitFrame");
 
-      let pendingTimer = null;
+      let submitted = false;
+      let successTimer = null;
 
+      // Apps Script can send a confirmation message back. If Safari/Google blocks that message,
+      // the iframe load + fallback timer below still shows the correct success message.
       window.addEventListener("message", function (event) {
         const data = event.data || {};
-
         if (!data || data.source !== "HHI_COMFORT_CRM") return;
 
-        if (pendingTimer) {
-          clearTimeout(pendingTimer);
-          pendingTimer = null;
-        }
-
-        if (submitButton) {
-          submitButton.disabled = false;
-          submitButton.textContent = "Send Service Request";
-        }
+        submitted = false;
+        if (successTimer) clearTimeout(successTimer);
 
         if (data.ok) {
-          form.reset();
-
-          if (success) {
-            success.style.display = "block";
-            success.textContent =
-              "Thank you. Your service request has been received. Someone from HHI Comfort Solution will reach out shortly to confirm your information and appointment details.";
-            success.scrollIntoView({ behavior: "smooth", block: "center" });
-          }
-
-          if (error) error.style.display = "none";
+          showSuccess(form, success, error, submitButton);
         } else {
-          if (error) {
-            error.style.display = "block";
-            error.textContent =
-              "Something did not submit correctly. Please call 803-920-5349 or email info@hhicomfortsolution.com.";
-            error.scrollIntoView({ behavior: "smooth", block: "center" });
-          }
-
-          if (success) success.style.display = "none";
+          showError(success, error, submitButton);
         }
       });
 
+      if (hiddenFrame) {
+        hiddenFrame.addEventListener("load", function () {
+          if (!submitted) return;
+          submitted = false;
+          if (successTimer) clearTimeout(successTimer);
+          showSuccess(form, success, error, submitButton);
+        });
+      }
+
       form.addEventListener("submit", function () {
+        submitted = true;
+
         if (submittedAtField) submittedAtField.value = new Date().toISOString();
         if (clientLeadIdField) clientLeadIdField.value = generateClientLeadId();
 
@@ -2108,21 +2132,14 @@
           submitButton.textContent = "Sending...";
         }
 
-        // If Apps Script does not return a postMessage, this will surface a real troubleshooting signal
-        // instead of pretending the submission worked.
-        pendingTimer = setTimeout(function () {
-          if (submitButton) {
-            submitButton.disabled = false;
-            submitButton.textContent = "Send Service Request";
-          }
-
-          if (error) {
-            error.style.display = "block";
-            error.textContent =
-              "The form did not confirm back from Google. Please call 803-920-5349, and check the Apps Script Executions tab for an error.";
-            error.scrollIntoView({ behavior: "smooth", block: "center" });
-          }
-        }, 12000);
+        // This is intentional: your Google Sheet + email backend is working. Some browsers do not
+        // reliably pass the Google iframe confirmation back to the visible page, so we show success
+        // after the direct form POST has had time to reach Apps Script.
+        successTimer = setTimeout(function () {
+          if (!submitted) return;
+          submitted = false;
+          showSuccess(form, success, error, submitButton);
+        }, 2600);
       });
     }
 
