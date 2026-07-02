@@ -1829,14 +1829,18 @@
             </p>
 
             <div class="success-message" id="successMessage">
-              Thank you. Your service request has been received and sent to our HHI Comfort Solution CRM. Someone will be reaching out shortly to confirm your information and appointment details.
+              Thank you. Your service request has been received. Someone from HHI Comfort Solution will be reaching out shortly to confirm your information and appointment details.
             </div>
 
             <div class="error-message" id="errorMessage">
               Something did not submit correctly. Please call 803-920-5349 or email info@hhicomfortsolution.com.
             </div>
 
-            <form id="serviceRequestForm">
+            <form id="serviceRequestForm" action="https://script.google.com/macros/s/AKfycbyV-Z4_tast2xaA8PY5ZyrFzZuEzvXHoOOICL7vxvPG5UVMm1ZXuyFSq2fWk_KiDVz3fQ/exec" method="POST" target="hiddenSubmitFrame">
+              <input type="hidden" name="leadSource" value="Website Backup Service Request Form" />
+              <input type="hidden" name="business" value="HHI Comfort Solution" />
+              <input type="hidden" name="website" value="hhicomfortsolution.com" />
+              <input type="hidden" name="submittedAt" id="submittedAtField" value="" />
               <div class="crm-form-grid">
                 <label>First Name
                   <input type="text" name="firstName" autocomplete="given-name" required />
@@ -1922,7 +1926,7 @@
               </label>
 
               <label class="consent">
-                <input type="checkbox" name="consent" required />
+                <input type="checkbox" name="consent" value="Yes" required />
                 <span>I agree that HHI Comfort Solution may contact me by phone, text, or email about my service request. I understand online requests are pending until confirmed by phone.</span>
               </label>
 
@@ -2018,126 +2022,53 @@
     <a class="btn btn-primary" href="#schedule-service">Free Estimate</a>
   </div>
 
+  <iframe name="hiddenSubmitFrame" id="hiddenSubmitFrame" style="display:none; width:0; height:0; border:0;"></iframe>
+
   <script>
-    // =============================
-    // GOOGLE WORKSPACE CRM SETTINGS
-    // =============================
-
-    // Paste your Google Calendar Appointment Schedule booking page URL here.
-    // Example: https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ...
-    const GOOGLE_CALENDAR_BOOKING_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3WbSwIl06ViEmRKPqEncUmUgV2I0IgNSAHXbrhuxKKTsVnrvv7GRaYNuvoTb8-1hEi62dDD_xP?gv=true";
-
-    // Paste your deployed Google Apps Script Web App URL here.
-    // This powers the backup service request form into Google Sheets + Gmail/Chat owner alerts.
+    // Direct form-post connection to Google Apps Script Web App.
+    // This avoids browser CORS/fetch issues and sends the form directly into Google Sheets.
     const GOOGLE_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyV-Z4_tast2xaA8PY5ZyrFzZuEzvXHoOOICL7vxvPG5UVMm1ZXuyFSq2fWk_KiDVz3fQ/exec";
-
-    const BUSINESS_PHONE = "803-920-5349";
-    const BUSINESS_EMAIL = "info@hhicomfortsolution.com";
-
-    function isPlaceholder(value) {
-      return !value || value.includes("PASTE_YOUR_");
-    }
-
-    function loadGoogleCalendarBooking() {
-      const wrap = document.getElementById("calendarEmbedWrap");
-      const fallbackButton = document.getElementById("calendarFallbackButton");
-
-      if (!wrap || isPlaceholder(GOOGLE_CALENDAR_BOOKING_URL)) return;
-
-      const iframe = document.createElement("iframe");
-      iframe.src = GOOGLE_CALENDAR_BOOKING_URL;
-      iframe.loading = "lazy";
-      iframe.referrerPolicy = "no-referrer-when-downgrade";
-      iframe.title = "Schedule a free HVAC estimate with HHI Comfort Solution";
-      wrap.innerHTML = "";
-      wrap.appendChild(iframe);
-
-      if (fallbackButton) fallbackButton.href = GOOGLE_CALENDAR_BOOKING_URL;
-    }
-
-    function getFormData(form) {
-      const data = Object.fromEntries(new FormData(form).entries());
-      data.consent = form.consent && form.consent.checked ? "Yes" : "No";
-      data.leadSource = "Website Service Request Form";
-      data.submittedAt = new Date().toISOString();
-      data.business = "HHI Comfort Solution";
-      data.website = "hhicomfortsolution.com";
-      return data;
-    }
-
-    function buildMailto(data) {
-      const subject = encodeURIComponent("New HHI Comfort Solution Service Request");
-      const body = encodeURIComponent(
-        `NEW WEBSITE SERVICE REQUEST\n\n` +
-        `Name: ${data.firstName || ""} ${data.lastName || ""}\n` +
-        `Phone: ${data.phone || ""}\n` +
-        `Email: ${data.email || ""}\n` +
-        `Address: ${data.address || ""}, ${data.city || ""}, ${data.zip || ""}\n` +
-        `Service Needed: ${data.serviceNeeded || ""}\n` +
-        `Urgency: ${data.urgency || ""}\n` +
-        `Preferred Date: ${data.preferredDate || ""}\n` +
-        `Preferred Time: ${data.preferredTime || ""}\n` +
-        `Customer Type: ${data.customerType || ""}\n\n` +
-        `Description:\n${data.description || ""}\n\n` +
-        `Action: Call customer ASAP to confirm appointment and verify details.`
-      );
-      return `mailto:${BUSINESS_EMAIL}?subject=${subject}&body=${body}`;
-    }
-
-    async function submitToGoogleAppsScript(data) {
-      // Google Apps Script Web Apps often return responses that static websites cannot read because of CORS.
-      // no-cors sends the request successfully without the browser blocking the lead submission.
-      await fetch(GOOGLE_APPS_SCRIPT_WEB_APP_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(data)
-      });
-    }
 
     function handleServiceForm() {
       const form = document.getElementById("serviceRequestForm");
       const success = document.getElementById("successMessage");
       const error = document.getElementById("errorMessage");
       const submitButton = document.getElementById("submitButton");
+      const submittedAtField = document.getElementById("submittedAtField");
+
       if (!form) return;
 
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault();
+      form.setAttribute("action", GOOGLE_APPS_SCRIPT_WEB_APP_URL);
+      form.setAttribute("method", "POST");
+      form.setAttribute("target", "hiddenSubmitFrame");
+
+      form.addEventListener("submit", function () {
+        if (submittedAtField) submittedAtField.value = new Date().toISOString();
         if (success) success.style.display = "none";
         if (error) error.style.display = "none";
-        submitButton.disabled = true;
-        submitButton.textContent = "Sending...";
 
-        const data = getFormData(form);
-
-        try {
-          if (isPlaceholder(GOOGLE_APPS_SCRIPT_WEB_APP_URL)) {
-            // Backup behavior before Apps Script is connected.
-            window.location.href = buildMailto(data);
-            if (success) {
-              success.style.display = "block";
-              success.textContent = "Your email app is opening with your service request. Please send it, or call 803-920-5349 for urgent service.";
-            }
-          } else {
-            await submitToGoogleAppsScript(data);
-            form.reset();
-            if (success) {
-              success.style.display = "block";
-              success.textContent = "Thank you. Your service request has been received and sent to our HHI Comfort Solution CRM. Someone will be reaching out shortly to confirm your information and appointment details.";
-            }
-          }
-        } catch (err) {
-          console.error(err);
-          if (error) error.style.display = "block";
-        } finally {
-          submitButton.disabled = false;
-          submitButton.textContent = "Send Service Request";
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = "Sending...";
         }
+
+        // The hidden iframe receives the Google response. Give Apps Script a moment to write the row,
+        // then show confirmation and clear the form.
+        setTimeout(function () {
+          form.reset();
+          if (success) {
+            success.style.display = "block";
+            success.textContent = "Thank you. Your service request has been received. Someone from HHI Comfort Solution will be reaching out shortly to confirm your information and appointment details.";
+            success.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Service Request";
+          }
+        }, 1600);
       });
     }
 
-    loadGoogleCalendarBooking();
     handleServiceForm();
   </script>
 
