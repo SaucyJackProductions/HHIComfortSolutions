@@ -120,6 +120,2077 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 9px;
+      font-weight: 950;
+      color: var(--navy);
+      font-size: 0.82rem;
+      letter-spacing: 0.002em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 2px;
+      width: 0;
+      height: 3px;
+      background: var(--orange);
+      border-radius: 99px;
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 950;
+      border: 0;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      white-space: nowrap;
+      font-size: 0.9rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--orange), #ff8c3a);
+      box-shadow: 0 14px 30px rgba(255, 106, 19, 0.34);
+    }
+
+    .btn-blue {
+      color: white;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      box-shadow: 0 14px 30px rgba(6, 43, 95, 0.25);
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--navy);
+      box-shadow: 0 12px 30px rgba(3, 25, 54, 0.14);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 780px;
+      display: flex;
+      align-items: center;
+      color: white;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(3, 25, 54, 0.96) 0%, rgba(6, 43, 95, 0.88) 42%, rgba(6, 43, 95, 0.34) 72%, rgba(6, 43, 95, 0.16) 100%),
+        url("HiltonHeadIslandCoastalComfort3.png") center right / cover no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 22%, rgba(12, 167, 255, 0.25), transparent 34%),
+        radial-gradient(circle at 76% 68%, rgba(255, 106, 19, 0.22), transparent 32%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -5%;
+      bottom: -130px;
+      width: 110%;
+      height: 230px;
+      background: white;
+      transform: rotate(-3deg);
+      transform-origin: left center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 740px;
+      padding: 90px 0 140px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      color: #dff4ff;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 0 7px rgba(255, 106, 19, 0.2);
+    }
+
+    .hero h1 {
+      font-size: clamp(3.2rem, 7vw, 6.6rem);
+      line-height: 0.92;
+      letter-spacing: -0.065em;
+      margin-bottom: 22px;
+      font-weight: 950;
+    }
+
+    .hero h1 strong {
+      color: #8ed9ff;
+      display: block;
+      letter-spacing: -0.045em;
+    }
+
+    .hero-sub {
+      font-size: clamp(1.18rem, 2vw, 1.5rem);
+      color: #effaff;
+      max-width: 700px;
+      margin-bottom: 30px;
+      font-weight: 650;
+    }
+
+    .hero-sub b {
+      color: white;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 680px;
+    }
+
+    .proof-card {
+      padding: 16px 14px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+    }
+
+    .proof-card strong {
+      display: block;
+      font-size: 1.22rem;
+      color: white;
+      line-height: 1.1;
+    }
+
+    .proof-card span {
+      display: block;
+      color: #cdefff;
+      font-weight: 750;
+      font-size: 0.86rem;
+      margin-top: 4px;
+    }
+
+    .emergency-strip {
+      position: relative;
+      z-index: 3;
+      margin-top: -82px;
+    }
+
+    .strip-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .strip-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(6, 43, 95, 0.08);
+    }
+
+    .strip-card.feature {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: white;
+    }
+
+    .strip-card .mini {
+      color: var(--orange);
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      margin-bottom: 7px;
+    }
+
+    .strip-card.feature .mini {
+      color: #ffc19b;
+    }
+
+    .strip-card h3 {
+      font-size: 1.34rem;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .strip-card.feature h3 {
+      color: white;
+    }
+
+    .strip-card p {
+      color: var(--gray);
+      font-weight: 650;
+      font-size: 0.96rem;
+    }
+
+    .strip-card.feature p {
+      color: #dff4ff;
+    }
+
+    section {
+      padding: 94px 0;
+    }
+
+    .section-kicker {
+      color: var(--orange);
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.82rem;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      color: var(--navy);
+      font-size: clamp(2.1rem, 4vw, 4rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      margin-bottom: 16px;
+      font-weight: 950;
+    }
+
+    .section-lead {
+      color: var(--gray);
+      font-size: 1.14rem;
+      max-width: 800px;
+      font-weight: 600;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .center .section-lead {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .services {
+      background:
+        radial-gradient(circle at top left, rgba(12, 167, 255, 0.13), transparent 36%),
+        linear-gradient(180deg, #ffffff 0%, var(--soft) 100%);
+    }
+
+    .service-grid {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      border: 1px solid rgba(6, 43, 95, 0.09);
+      box-shadow: 0 18px 45px rgba(3, 25, 54, 0.08);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 60px rgba(3, 25, 54, 0.14);
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--blue), var(--orange));
+    }
+
+    .service-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 1.7rem;
+      background: var(--ice);
+      margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+      color: var(--navy);
+      font-size: 1.18rem;
+      line-height: 1.15;
+      margin-bottom: 10px;
+      font-weight: 950;
+    }
+
+    .service-card p {
+      color: var(--gray);
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .media-frame {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 540px;
+      background: var(--navy);
+    }
+
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      min-height: 540px;
+      object-fit: cover;
+    }
+
+    .media-badge {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      right: 22px;
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.2);
+    }
+
+    .media-badge strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.35rem;
+      line-height: 1.1;
+      margin-bottom: 5px;
+    }
+
+    .media-badge span {
+      color: var(--gray);
+      font-weight: 750;
+    }
+
+    .bullet-list {
+      display: grid;
+      gap: 15px;
+      margin-top: 26px;
+    }
+
+    .bullet {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 18px;
+      border-radius: 18px;
+      background: white;
+      border: 1px solid rgba(6, 43, 95, 0.09);
+      box-shadow: 0 12px 34px rgba(3, 25, 54, 0.06);
+    }
+
+    .bullet i {
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, var(--blue), var(--navy));
+      color: white;
+      display: grid;
+      place-items: center;
+      font-style: normal;
+      font-weight: 950;
+    }
+
+    .bullet h4 {
+      color: var(--navy);
+      font-size: 1.03rem;
+      margin-bottom: 3px;
+    }
+
+    .bullet p {
+      color: var(--gray);
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    .coastal {
+      background:
+        linear-gradient(135deg, rgba(3, 25, 54, 0.92), rgba(6, 43, 95, 0.88)),
+        url("HiltonHeadIslandCoastalComfort1.png") center / cover no-repeat;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .coastal .section-title {
+      color: white;
+    }
+
+    .coastal .section-lead {
+      color: #dff4ff;
+    }
+
+    .coastal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .coastal-card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius);
+      padding: 26px;
+      backdrop-filter: blur(14px);
+    }
+
+    .coastal-card h3 {
+      color: white;
+      font-size: 1.22rem;
+      margin-bottom: 9px;
+    }
+
+    .coastal-card p {
+      color: #dff4ff;
+      font-weight: 600;
+    }
+
+    .gallery {
+      background: white;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .gallery-main,
+    .gallery-stack {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--navy);
+    }
+
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      min-height: 640px;
+      object-fit: cover;
+    }
+
+    .gallery-stack {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 0;
+    }
+
+    .gallery-stack img {
+      width: 100%;
+      height: 100%;
+      min-height: 310px;
+      object-fit: cover;
+    }
+
+    .review-section {
+      background: linear-gradient(180deg, var(--soft), #ffffff);
+    }
+
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .review {
+      background: white;
+      padding: 28px;
+      border-radius: var(--radius);
+      box-shadow: 0 18px 45px rgba(3, 25, 54, 0.08);
+      border: 1px solid rgba(6, 43, 95, 0.08);
+    }
+
+    .stars {
+      color: var(--orange);
+      letter-spacing: 0.08em;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+
+    .review p {
+      color: var(--gray);
+      font-weight: 650;
+      margin-bottom: 16px;
+    }
+
+    .review strong {
+      color: var(--navy);
+    }
+
+    .cta {
+      padding: 0;
+      background: white;
+    }
+
+    .cta-box {
+      background:
+        radial-gradient(circle at 86% 18%, rgba(255, 106, 19, 0.26), transparent 26%),
+        linear-gradient(135deg, var(--navy-dark), var(--navy) 55%, var(--blue));
+      color: white;
+      border-radius: 36px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-content {
+      padding: 52px;
+    }
+
+    .cta-content h2 {
+      font-size: clamp(2.1rem, 4vw, 4.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      margin-bottom: 16px;
+    }
+
+    .cta-content p {
+      color: #dff4ff;
+      font-size: 1.14rem;
+      font-weight: 650;
+      max-width: 640px;
+      margin-bottom: 24px;
+    }
+
+    .cta-image {
+      min-height: 450px;
+      background: url("HiltonHeadIslandCoastalComfort2.png") center / cover no-repeat;
+    }
+
+    .contact {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(12, 167, 255, 0.12), transparent 32%),
+        var(--soft);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 38px;
+      align-items: start;
+      margin-top: 40px;
+    }
+
+    .contact-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(6, 43, 95, 0.08);
+    }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(6, 43, 95, 0.1);
+    }
+
+    .contact-item:last-child {
+      border-bottom: 0;
+    }
+
+    .contact-item i {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--ice);
+      color: var(--navy);
+      font-style: normal;
+      font-weight: 950;
+    }
+
+    .contact-item h4 {
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+
+    .contact-item p {
+      color: var(--gray);
+      font-weight: 650;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(6, 43, 95, 0.16);
+      border-radius: 16px;
+      padding: 15px 16px;
+      font: inherit;
+      color: var(--text);
+      background: #fbfdff;
+      outline: none;
+      transition: border 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    textarea {
+      min-height: 132px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(8, 119, 201, 0.12);
+    }
+
+    .form-note {
+      color: var(--gray);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+
+
+    /* Google Workspace CRM + Booking System */
+    .btn-full {
+      width: 100%;
+    }
+
+    .booking-section {
+      background:
+        radial-gradient(circle at 18% 12%, rgba(12, 167, 255, 0.13), transparent 34%),
+        linear-gradient(180deg, var(--soft) 0%, #ffffff 100%);
+      border-top: 1px solid rgba(6, 43, 95, 0.08);
+      border-bottom: 1px solid rgba(6, 43, 95, 0.08);
+    }
+
+    .booking-head {
+      max-width: 900px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .booking-panel,
+    .lead-panel {
+      background: white;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(6, 43, 95, 0.09);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .booking-panel {
+      padding: 34px;
+      position: sticky;
+      top: 118px;
+    }
+
+    .booking-panel h3,
+    .lead-panel h3 {
+      color: var(--navy);
+      font-size: 1.72rem;
+      line-height: 1.08;
+      margin-bottom: 10px;
+      font-weight: 950;
+      letter-spacing: -0.035em;
+    }
+
+    .booking-panel p,
+    .lead-panel p {
+      color: var(--gray);
+      font-weight: 650;
+    }
+
+    .process-list {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .process-list div {
+      padding: 14px 15px;
+      border-radius: 16px;
+      background: var(--soft);
+      border: 1px solid rgba(6, 43, 95, 0.09);
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .urgent-box {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 20px;
+      background: #fff7ed;
+      border: 1px solid rgba(255, 106, 19, 0.24);
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .urgent-box strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 6px;
+      font-size: 1.06rem;
+    }
+
+    .calendar-embed-wrap {
+      min-height: 685px;
+      background: #f7fbff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(6, 43, 95, 0.09);
+      box-shadow: var(--shadow);
+    }
+
+    .calendar-embed-wrap iframe {
+      width: 100%;
+      height: 735px;
+      border: 0;
+      display: block;
+      background: white;
+    }
+
+    .calendar-placeholder {
+      min-height: 685px;
+      padding: 40px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(12, 167, 255, 0.14), transparent 34%),
+        white;
+    }
+
+    .calendar-placeholder h3 {
+      color: var(--navy);
+      font-size: clamp(1.8rem, 3vw, 2.65rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      margin-bottom: 14px;
+      font-weight: 950;
+    }
+
+    .calendar-placeholder p {
+      color: var(--gray);
+      max-width: 590px;
+      margin: 0 auto 22px;
+      font-weight: 650;
+    }
+
+    .placeholder-code {
+      margin-top: 16px;
+      display: inline-block;
+      padding: 10px 13px;
+      border-radius: 12px;
+      background: #edf5fb;
+      border: 1px dashed rgba(8, 119, 201, 0.42);
+      color: var(--navy);
+      font-size: 0.88rem;
+      font-weight: 900;
+    }
+
+    .lead-panel {
+      padding: 34px;
+    }
+
+    .lead-panel .form-intro {
+      margin-bottom: 22px;
+    }
+
+    .crm-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    #serviceRequestForm label {
+      display: grid;
+      gap: 7px;
+      color: var(--navy);
+      font-size: 0.92rem;
+      font-weight: 900;
+    }
+
+    #serviceRequestForm .consent {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--gray);
+      font-weight: 650;
+      font-size: 0.9rem;
+    }
+
+    #serviceRequestForm .consent input {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      padding: 0;
+    }
+
+    .success-message,
+    .error-message {
+      display: none;
+      padding: 16px;
+      border-radius: 16px;
+      font-weight: 850;
+      margin-bottom: 16px;
+    }
+
+    .success-message {
+      background: #e9fff3;
+      color: #075b2b;
+      border: 1px solid rgba(18, 142, 73, 0.24);
+    }
+
+    .error-message {
+      background: #fff1f1;
+      color: #8a1b1b;
+      border: 1px solid rgba(170, 20, 20, 0.2);
+    }
+
+    .mobile-sticky {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1002;
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      border-top: 1px solid rgba(6, 43, 95, 0.1);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 -14px 34px rgba(3, 25, 54, 0.11);
+    }
+
+    .mobile-sticky .btn {
+      min-height: 48px;
+      padding: 12px 10px;
+      font-size: 0.88rem;
+    }
+
+
+    .faq {
+      background: white;
+    }
+
+    .faq-grid {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .faq-item {
+      padding: 24px;
+      border-radius: var(--radius);
+      background: var(--soft);
+      border: 1px solid rgba(6, 43, 95, 0.08);
+    }
+
+    .faq-item h3 {
+      color: var(--navy);
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .faq-item p {
+      color: var(--gray);
+      font-weight: 600;
+    }
+
+    footer {
+      background: var(--navy-dark);
+      color: white;
+      padding: 54px 0 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr;
+      gap: 30px;
+      margin-bottom: 34px;
+    }
+
+    .footer-logo {
+      width: 210px;
+      background: white;
+      border-radius: 18px;
+      padding: 10px;
+      margin-bottom: 16px;
+    }
+
+    footer p {
+      color: #cdefff;
+      font-weight: 600;
+    }
+
+    footer h4 {
+      margin-bottom: 12px;
+      color: white;
+    }
+
+    footer a {
+      display: block;
+      color: #cdefff;
+      font-weight: 650;
+      margin: 8px 0;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #b8dff4;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .floating-call {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1001;
+      display: none;
+      box-shadow: 0 18px 45px rgba(255, 106, 19, 0.42);
+    }
+
+    @media (max-width: 1320px) {
+      .brand {
+        width: 210px;
+      }
+
+      .brand img {
+        width: 206px;
+      }
+
+      .nav-links {
+        gap: 7px;
+        font-size: 0.74rem;
+        letter-spacing: 0;
+      }
+
+      .btn {
+        padding: 10px 11px;
+        font-size: 0.76rem;
+      }
+    }
+
+    @media (max-width: 1130px) {
+      .nav-links {
+        display: none;
+      }
+
+      .service-grid,
+      .coastal-grid,
+      .reviews {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .strip-grid,
+      .split,
+      .cta-box,
+      .contact-grid,
+      .booking-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-panel {
+        position: static;
+      }
+
+      .hero {
+        min-height: auto;
+        background:
+          linear-gradient(180deg, rgba(3, 25, 54, 0.94) 0%, rgba(6, 43, 95, 0.88) 56%, rgba(6, 43, 95, 0.7) 100%),
+          url("HiltonHeadIslandCoastalComfort3.png") center / cover no-repeat;
+      }
+
+      .hero-content {
+        padding-top: 74px;
+      }
+
+      .cta-image {
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .top-alert {
+        font-size: 0.8rem;
+      }
+
+      .nav {
+        min-height: 78px;
+      }
+
+      .brand {
+        width: 166px;
+      }
+
+      .brand img {
+        width: 164px;
+      }
+
+      .nav-actions .btn-blue {
+        display: inline-flex;
+        padding: 10px 13px;
+        font-size: 0.78rem;
+      }
+
+      .hero-content {
+        padding: 54px 0 120px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 15vw, 4.55rem);
+      }
+
+      body {
+        padding-bottom: 76px;
+      }
+
+      .hero-proof,
+      .service-grid,
+      .coastal-grid,
+      .reviews,
+      .gallery-grid,
+      .faq-grid,
+      .form-row,
+      .crm-form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .calendar-embed-wrap iframe {
+        height: 705px;
+      }
+
+      .calendar-placeholder {
+        padding: 26px;
+      }
+
+      .mobile-sticky {
+        display: grid;
+      }
+
+      .emergency-strip {
+        margin-top: -72px;
+      }
+
+      section {
+        padding: 68px 0;
+      }
+
+      .media-frame,
+      .media-frame img {
+        min-height: 420px;
+      }
+
+      .gallery-main img {
+        min-height: 420px;
+      }
+
+      .cta-content {
+        padding: 34px 24px;
+      }
+
+      .contact-card {
+        padding: 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .floating-call {
+        display: none;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HVACBusiness",
+    "name": "HHI Comfort Solution",
+    "url": "https://hhicomfortsolution.com/",
+    "image": "https://hhicomfortsolution.com/HHIComfortSolutions-Logo2.png",
+    "telephone": "+18039205349",
+    "email": "info@hhicomfortsolution.com",
+    "areaServed": [
+      "Hilton Head Island, SC",
+      "Bluffton, SC",
+      "Sea Pines, Hilton Head Island",
+      "Palmetto Dunes, Hilton Head Island",
+      "Shelter Cove, Hilton Head Island",
+      "Spanish Wells, Hilton Head Island",
+      "Wexford, Hilton Head Island",
+      "Long Cove, Hilton Head Island",
+      "Indigo Run, Hilton Head Island"
+    ],
+    "description": "HHI Comfort Solution provides premium HVAC repair, AC service, cooling, heating, maintenance, installation, indoor comfort, and refrigeration support for Hilton Head Island homes and businesses.",
+    "openingHours": "Mo-Su 00:00-23:59",
+    "priceRange": "$$"
+  }
+  </script>
+</head>
+
+<body>
+  <div class="top-alert">
+    Hilton Head Island&apos;s Comfort Team - Same-Day HVAC Service &amp; 24/7 Emergency Availability.
+    <a href="tel:18039205349">Call 803-920-5349</a>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="HHI Comfort Solution Home">
+        <img src="HHIComfortSolutions-Logo2.png" alt="HHI Comfort Solution logo" />
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#schedule-service">Schedule</a>
+        <a href="#coastal">Why HHI</a>
+        <a href="#residential">Residential</a>
+        <a href="#commercial">Commercial</a>
+        <a href="#maintenance">Maintenance</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-blue" href="tel:18039205349">Call Now</a>
+        <a class="btn btn-primary" href="#schedule-service">Free Estimate</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="eyebrow"><span></span> HHI Comfort Solution • Hilton Head Island</div>
+
+        <h1>
+          Comfort handled.
+          <strong>The island way.</strong>
+        </h1>
+
+        <p class="hero-sub">
+          Your home or business should feel cool, calm, and taken care of from the moment you reach out.
+          <b>HHI Comfort Solution</b> delivers polished HVAC, cooling, heating, maintenance, installation, and refrigeration service for Hilton Head Island properties that expect things done right.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:18039205349">Call 803-920-5349</a>
+          <a class="btn btn-white" href="#schedule-service">Schedule Free Estimate</a>
+        </div>
+
+        <div class="hero-proof">
+          <div class="proof-card">
+            <strong>24/7</strong>
+            <span>Emergency Availability</span>
+          </div>
+          <div class="proof-card">
+            <strong>Same-Day</strong>
+            <span>Service Options</span>
+          </div>
+          <div class="proof-card">
+            <strong>Island Built</strong>
+            <span>Coastal Comfort Focus</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="emergency-strip">
+      <div class="container strip-grid">
+        <div class="strip-card feature">
+          <div class="mini">Need service now?</div>
+          <h3>When comfort matters, the next move should feel obvious.</h3>
+          <p>Call HHI Comfort Solution for responsive local service, clear communication, and a professional experience that makes the repair process feel simple from the first conversation.</p>
+          <div style="margin-top: 18px;">
+            <a class="btn btn-white" href="#schedule-service">Schedule Free Estimate</a>
+          </div>
+        </div>
+
+        <div class="strip-card">
+          <div class="mini">Homes</div>
+          <h3>Residential comfort without the confusion.</h3>
+          <p>AC repair, cooling service, heating, maintenance, diagnostics, and system care for island homes, rentals, and coastal properties.</p>
+        </div>
+
+        <div class="strip-card">
+          <div class="mini">Businesses</div>
+          <h3>Commercial HVAC &amp; refrigeration support.</h3>
+          <p>Dependable comfort and cooling support for restaurants, offices, kitchens, storefronts, property managers, and local businesses.</p>
+        </div>
+      </div>
+    </div>
+
+
+
+    <section class="booking-section" id="schedule-service">
+      <div class="container">
+        <div class="booking-head">
+          <div class="section-kicker">Google Workspace Booking System</div>
+          <h2 class="section-title">Schedule your free HVAC estimate.</h2>
+          <p class="section-lead">
+            Choose your preferred appointment time and tell us what is going on. Our team will call shortly to verify your information, confirm the service address, and lock in the final appointment window.
+          </p>
+        </div>
+
+        <div class="booking-grid">
+          <aside class="booking-panel">
+            <h3>How this works</h3>
+            <p>The online calendar creates an appointment request immediately, but the final appointment is confirmed by phone so we can protect your time, verify the address, and dispatch correctly.</p>
+
+            <div class="process-list">
+              <div>1. Pick your preferred day and time.</div>
+              <div>2. Add your service details.</div>
+              <div>3. We receive the alert instantly.</div>
+              <div>4. We call ASAP to confirm.</div>
+            </div>
+
+            <div class="urgent-box">
+              <strong>Emergency HVAC issue?</strong>
+              For urgent AC, heating, or refrigeration problems, call directly so we can respond as quickly as possible.
+              <br /><br />
+              <a class="btn btn-blue btn-full" href="tel:18039205349">Call 803-920-5349</a>
+            </div>
+          </aside>
+
+          <div class="calendar-embed-wrap" id="calendarEmbedWrap">
+            <!-- Google Calendar Appointment Scheduling begin -->
+            <iframe
+              src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3WbSwIl06ViEmRKPqEncUmUgV2I0IgNSAHXbrhuxKKTsVnrvv7GRaYNuvoTb8-1hEi62dDD_xP?gv=true"
+              style="border: 0;"
+              width="100%"
+              height="760"
+              frameborder="0"
+              title="Schedule a free HVAC estimate with HHI Comfort Solution">
+            </iframe>
+            <!-- end Google Calendar Appointment Scheduling -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container center">
+        <div class="section-kicker">Our Services</div>
+        <h2 class="section-title">Premium comfort solutions for island life.</h2>
+        <p class="section-lead">
+          HHI Comfort Solution was built for the way Hilton Head lives: hot days, humid air, high expectations, busy homes, demanding businesses, and no patience for unreliable comfort. We bring the service, polish, and follow-through customers expect from a true local comfort partner.
+        </p>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon">&#10052;</div>
+            <h3>AC Repair</h3>
+            <p>Fast, focused repair for systems blowing warm air, freezing up, leaking, short cycling, struggling, or failing when you need cooling most.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">&#127754;</div>
+            <h3>Cooling Service</h3>
+            <p>Comfort-first cooling support designed for Hilton Head heat, heavy humidity, salt air, and long summer demand.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">&#128293;</div>
+            <h3>Heating Service</h3>
+            <p>Reliable heating diagnostics, tune-ups, repairs, and seasonal comfort checks for cooler coastal nights and changing weather.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">&#128736;</div>
+            <h3>Maintenance Plans</h3>
+            <p>Proactive system care that helps prevent surprise breakdowns, improve performance, protect equipment, and keep comfort consistent.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">&#127968;</div>
+            <h3>Installation</h3>
+            <p>Professional replacement and installation guidance for homeowners, rental properties, renovations, and comfort upgrades.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">&#127788;</div>
+            <h3>Indoor Air Comfort</h3>
+            <p>Support for humidity, airflow, filtration, comfort balance, and indoor air issues that affect how your home actually feels.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">&#129482;</div>
+            <h3>Refrigeration</h3>
+            <p>Commercial refrigeration support for kitchens, restaurants, food service spaces, and business-critical cooling needs.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">&#128680;</div>
+            <h3>Emergency Service</h3>
+            <p>When comfort cannot wait, we make the next step simple: call, connect, and get the help your property needs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="coastal" id="coastal">
+      <div class="container center">
+        <div class="section-kicker">Built For Hilton Head Island</div>
+        <h2 class="section-title">Coastal comfort is different. We treat it that way.</h2>
+        <p class="section-lead">
+          Hilton Head properties are not ordinary properties. Salt air, humidity, long cooling seasons, vacation traffic, luxury expectations, and business-critical comfort all change the game. HHI Comfort Solution brings an island-specific approach to every call.
+        </p>
+
+        <div class="coastal-grid">
+          <article class="coastal-card">
+            <h3>Salt Air Awareness</h3>
+            <p>Coastal conditions can wear equipment down faster. We focus on practical service, protection, and maintenance that make sense for island systems.</p>
+          </article>
+
+          <article class="coastal-card">
+            <h3>Humidity Control</h3>
+            <p>Comfort is more than the thermostat. We help address airflow, moisture, filtration, and balance so your space feels right.</p>
+          </article>
+
+          <article class="coastal-card">
+            <h3>Fast Local Response</h3>
+            <p>When your AC is down in Hilton Head heat, you need a company that understands urgency and communicates clearly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="residential">
+      <div class="container split">
+        <div>
+          <div class="section-kicker">Residential HVAC</div>
+          <h2 class="section-title">Your home should already feel like it is in good hands.</h2>
+          <p class="section-lead">
+            From the first call, our goal is to make the process feel calm, clear, and handled. HHI Comfort Solution serves homeowners, vacation rentals, and coastal properties with responsive HVAC care built around trust, comfort, and long-term reliability.
+          </p>
+
+          <div class="bullet-list">
+            <div class="bullet">
+              <i>1</i>
+              <div>
+                <h4>Fast help when the AC fails</h4>
+                <p>We prioritize comfort emergencies and make it easy to understand what happens next.</p>
+              </div>
+            </div>
+
+            <div class="bullet">
+              <i>2</i>
+              <div>
+                <h4>Service built around coastal wear</h4>
+                <p>Humidity, salt air, and long cooling seasons can strain equipment. Preventive care helps protect your comfort and your investment.</p>
+              </div>
+            </div>
+
+            <div class="bullet">
+              <i>3</i>
+              <div>
+                <h4>Clear recommendations</h4>
+                <p>No confusion, no pressure, no runaround. We explain what matters, what can wait, and what makes the most sense.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-frame">
+          <img src="HiltonHeadIslandCoastalComfort3.png" alt="HHI Comfort Solution technician servicing residential AC unit in Hilton Head Island" />
+          <div class="media-badge">
+            <strong>Local service with a premium standard.</strong>
+            <span>Professional presentation, respectful work, and comfort-focused solutions for Hilton Head homes.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="commercial">
+      <div class="container split">
+        <div class="media-frame">
+          <img src="HiltonHeadIslandCoastalComfort2.png" alt="HHI Comfort Solution technician working on commercial refrigeration equipment" />
+          <div class="media-badge">
+            <strong>Your business cannot afford comfort problems.</strong>
+            <span>HVAC and refrigeration support for restaurants, offices, kitchens, and island businesses.</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-kicker">Commercial Support</div>
+          <h2 class="section-title">For businesses, comfort is part of the customer experience.</h2>
+          <p class="section-lead">
+            When HVAC or refrigeration issues interrupt operations, the problem is bigger than equipment. It affects customers, staff, inventory, revenue, and reputation. HHI Comfort Solution helps local businesses stay comfortable, operational, and prepared.
+          </p>
+
+          <div class="bullet-list">
+            <div class="bullet">
+              <i>1</i>
+              <div>
+                <h4>Restaurant and kitchen support</h4>
+                <p>Cooling, refrigeration, airflow, and comfort support for busy food service spaces where downtime matters.</p>
+              </div>
+            </div>
+
+            <div class="bullet">
+              <i>2</i>
+              <div>
+                <h4>Office and retail comfort</h4>
+                <p>Keep guests, employees, tenants, and customers comfortable with dependable commercial HVAC service.</p>
+              </div>
+            </div>
+
+            <div class="bullet">
+              <i>3</i>
+              <div>
+                <h4>Professional communication</h4>
+                <p>Simple scheduling, clear updates, and straightforward recommendations so owners and managers can make confident decisions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="maintenance">
+      <div class="container split">
+        <div>
+          <div class="section-kicker">Maintenance Plans</div>
+          <h2 class="section-title">The smoothest repair is the one you never need.</h2>
+          <p class="section-lead">
+            Preventive maintenance is how smart property owners protect comfort before problems turn into emergencies. HHI Comfort Solution helps keep your system clean, prepared, efficient, and ready for Hilton Head&apos;s long cooling season.
+          </p>
+
+          <div class="bullet-list">
+            <div class="bullet">
+              <i>✓</i>
+              <div>
+                <h4>Seasonal system checks</h4>
+                <p>Catch worn parts, clogged drains, weak airflow, dirty coils, and efficiency issues before they become expensive repairs.</p>
+              </div>
+            </div>
+
+            <div class="bullet">
+              <i>✓</i>
+              <div>
+                <h4>Better comfort performance</h4>
+                <p>A clean, maintained system can cool more consistently, control humidity better, and operate with less strain.</p>
+              </div>
+            </div>
+
+            <div class="bullet">
+              <i>✓</i>
+              <div>
+                <h4>Priority comfort support</h4>
+                <p>Maintenance customers can receive preferred attention when seasonal demand is high and quick service matters most.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-frame">
+          <img src="HiltonHeadIslandCoastalComfort5.png" alt="HHI Comfort Solution HVAC service photo collage" />
+          <div class="media-badge">
+            <strong>Repair. Maintain. Install. Protect.</strong>
+            <span>A complete comfort partner for Hilton Head Island properties.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery">
+      <div class="container center">
+        <div class="section-kicker">Professional HVAC Service</div>
+        <h2 class="section-title">A local brand built to earn trust before the first appointment.</h2>
+        <p class="section-lead">
+          Customers want to feel confident before they pick up the phone. Every detail of HHI Comfort Solution is designed to communicate professionalism, urgency, care, and long-term reliability.
+        </p>
+
+        <div class="gallery-grid">
+          <div class="gallery-main">
+            <img src="HiltonHeadIslandCoastalComfort1.png" alt="HHI Comfort Solution coastal comfort services poster" />
+          </div>
+
+          <div class="gallery-stack">
+            <img src="HiltonHeadIslandCoastalComfort3.png" alt="HHI Comfort Solution residential HVAC service" />
+            <img src="HiltonHeadIslandCoastalComfort2.png" alt="HHI Comfort Solution commercial refrigeration service" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="review-section" id="reviews">
+      <div class="container center">
+        <div class="section-kicker">Why Customers Choose HHI Comfort Solution</div>
+        <h2 class="section-title">Fast help. Clean work. Clear answers.</h2>
+        <p class="section-lead">
+          Great HVAC service should feel organized, professional, and reassuring from the start. That is the standard we are building around every customer, every property, and every call.
+        </p>
+
+        <div class="reviews">
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>&quot;Quick response, professional communication, and honest recommendations. Exactly what you want when your AC is struggling.&quot;</p>
+            <strong>Hilton Head Homeowner</strong>
+          </article>
+
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>&quot;They understood the urgency and helped us get comfortable again fast. Professional from the first call.&quot;</p>
+            <strong>Local Property Owner</strong>
+          </article>
+
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>&quot;Clean, reliable, and easy to work with. A strong local option for HVAC service on the island.&quot;</p>
+            <strong>Island Business Client</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-box">
+          <div class="cta-content">
+            <div class="section-kicker">Call Today</div>
+            <h2>Your comfort is ready for a better company.</h2>
+            <p>
+              Call HHI Comfort Solution for AC repair, cooling, heating service, maintenance, installation, refrigeration support, and emergency comfort help across Hilton Head Island.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="tel:18039205349">Call 803-920-5349</a>
+              <a class="btn btn-white" href="#schedule-service">Schedule Free Estimate</a>
+            </div>
+          </div>
+
+          <div class="cta-image" aria-label="HHI Comfort Solution HVAC technician"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="center">
+          <div class="section-kicker">Contact HHI Comfort Solution</div>
+          <h2 class="section-title">Tell us what is going on. We will help you take it from there.</h2>
+          <p class="section-lead">
+            For the fastest response, call now. For non-emergency service, use the live calendar above or send your details below. Every online request is pending until we call to verify your information and confirm the appointment window.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-item">
+              <i>☎</i>
+              <div>
+                <h4>Call</h4>
+                <p><a href="tel:18039205349">803-920-5349</a></p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <i>✉</i>
+              <div>
+                <h4>Email</h4>
+                <p><a href="mailto:info@hhicomfortsolution.com">info@hhicomfortsolution.com</a></p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <i>⌂</i>
+              <div>
+                <h4>Service Area</h4>
+                <p>Hilton Head Island, Bluffton, Sea Pines, Palmetto Dunes, Shelter Cove, Spanish Wells, Wexford, Long Cove, and surrounding island communities.</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <i>24</i>
+              <div>
+                <h4>Emergency Availability</h4>
+                <p>Same-day service and 24/7 emergency availability for urgent HVAC, cooling, heating, and refrigeration needs.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-card lead-panel">
+            <h3>Backup Service Request Form</h3>
+            <p class="form-intro">
+              This form is built for your Google Sheets CRM through Google Apps Script. The live calendar above should be the main scheduling path, and this form captures the full customer/service details for follow-up.
+            </p>
+
+            <div class="success-message" id="successMessage">
+              Thank you — your service request has been received. We appreciate you reaching out to HHI Comfort Solution. A member of our team will be in touch as soon as possible to confirm your information, review the details, verify the service address, and lock in the best appointment window.
+            </div>
+
+            <div class="error-message" id="errorMessage">
+              Something did not submit correctly. Please call 803-920-5349 or email info@hhicomfortsolution.com.
+            </div>
+
+            <form id="serviceRequestForm" action="" method="POST" target="hiddenSubmitFrame">
+              <input type="hidden" name="leadSource" value="Website Backup Service Request Form" />
+              <input type="hidden" name="business" value="HHI Comfort Solution" />
+              <input type="hidden" name="website" value="hhicomfortsolution.com" />
+              <input type="hidden" name="submittedAt" id="submittedAtField" value="" />
+              <input type="hidden" name="clientLeadId" id="clientLeadIdField" value="" />
+              <div class="crm-form-grid">
+                <label>First Name
+                  <input type="text" name="firstName" autocomplete="given-name" required />
+                </label>
+                <label>Last Name
+                  <input type="text" name="lastName" autocomplete="family-name" required />
+                </label>
+              </div>
+
+              <div class="crm-form-grid">
+                <label>Phone Number
+                  <input type="tel" name="phone" autocomplete="tel" required />
+                </label>
+                <label>Email Address
+                  <input type="email" name="email" autocomplete="email" required />
+                </label>
+              </div>
+
+              <label>Service Address
+                <input type="text" name="address" autocomplete="street-address" required />
+              </label>
+
+              <div class="crm-form-grid">
+                <label>City
+                  <input type="text" name="city" value="Hilton Head Island" required />
+                </label>
+                <label>ZIP Code
+                  <input type="text" name="zip" autocomplete="postal-code" inputmode="numeric" required />
+                </label>
+              </div>
+
+              <div class="crm-form-grid">
+                <label>Service Needed
+                  <select name="serviceNeeded" required>
+                    <option value="">Select one</option>
+                    <option>AC Repair</option>
+                    <option>Cooling Service</option>
+                    <option>Heating Service</option>
+                    <option>HVAC Replacement Estimate</option>
+                    <option>New Installation Estimate</option>
+                    <option>Preventative Maintenance</option>
+                    <option>Refrigeration</option>
+                    <option>Thermostat Issue</option>
+                    <option>Ductwork / Airflow Issue</option>
+                    <option>Emergency Service</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+
+                <label>Urgency
+                  <select name="urgency" required>
+                    <option value="">Select one</option>
+                    <option>Emergency — Need help ASAP</option>
+                    <option>Today</option>
+                    <option>Tomorrow</option>
+                    <option>This Week</option>
+                    <option>Planning Ahead / Free Estimate</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="crm-form-grid">
+                <label>Preferred Date
+                  <input type="date" name="preferredDate" />
+                </label>
+                <label>Preferred Time
+                  <input type="text" name="preferredTime" placeholder="Example: 12:30 PM" autocomplete="off" inputmode="text" />
+                </label>
+              </div>
+
+              <label>Property / Customer Type
+                <select name="customerType">
+                  <option>Homeowner</option>
+                  <option>Property Manager</option>
+                  <option>Business Owner</option>
+                  <option>Tenant</option>
+                  <option>Other</option>
+                </select>
+              </label>
+
+              <label>Brief Description
+                <textarea name="description" placeholder="Tell us what the system is doing, when the issue started, and any access/gate instructions." required></textarea>
+              </label>
+
+              <label class="consent">
+                <input type="checkbox" name="consent" value="Yes" required />
+                <span>I agree that HHI Comfort Solution may contact me by phone, text, or email about my service request. I understand online requests are pending until confirmed by phone.</span>
+              </label>
+
+              <button class="btn btn-primary btn-full" type="submit" id="submitButton">Send Service Request</button>
+
+              <p class="form-note">
+                For emergency service, call directly at <a href="tel:18039205349">803-920-5349</a>.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container center">
+        <div class="section-kicker">HVAC Questions</div>
+        <h2 class="section-title">Common Hilton Head HVAC questions.</h2>
+
+        <div class="faq-grid">
+          <article class="faq-item">
+            <h3>Do you provide emergency AC repair?</h3>
+            <p>Yes. HHI Comfort Solution offers same-day service options and 24/7 emergency availability for urgent HVAC and cooling issues.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Do you service commercial refrigeration?</h3>
+            <p>Yes. We support commercial cooling and refrigeration needs for restaurants, kitchens, food service spaces, and local businesses.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Why is coastal HVAC maintenance important?</h3>
+            <p>Hilton Head systems face humidity, salt air, long cooling seasons, and heavy demand. Maintenance helps protect performance and reduce breakdown risk.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>What areas do you serve?</h3>
+            <p>We serve Hilton Head Island and nearby communities including Bluffton, Sea Pines, Palmetto Dunes, Shelter Cove, Long Cove, Wexford, Spanish Wells, and Indigo Run.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img class="footer-logo" src="HHIComfortSolutions-Logo2.png" alt="HHI Comfort Solution logo" />
+          <p>
+            HHI Comfort Solution provides HVAC, AC repair, cooling, heating, maintenance, installation, indoor air comfort, and refrigeration support for Hilton Head Island homes and businesses.
+          </p>
+        </div>
+
+        <div>
+          <h4>Services</h4>
+          <a href="#services">AC Repair</a>
+          <a href="#services">Cooling Service</a>
+          <a href="#services">Heating Service</a>
+          <a href="#maintenance">Maintenance Plans</a>
+          <a href="#commercial">Refrigeration</a>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <a href="#coastal">Why HHI</a>
+          <a href="#schedule-service">Schedule Free Estimate</a>
+          <a href="#residential">Residential</a>
+          <a href="#commercial">Commercial</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <a href="tel:18039205349">803-920-5349</a>
+          <a href="mailto:info@hhicomfortsolution.com">info@hhicomfortsolution.com</a>
+          <a href="https://hhicomfortsolution.com/">hhicomfortsolution.com</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 HHI Comfort Solution. All Rights Reserved.</span>
+        <span>Island Comfort. Coastal Reliability.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="btn btn-primary floating-call" href="tel:18039205349">Call Now</a>
+
+  <div class="mobile-sticky">
+    <a class="btn btn-blue" href="tel:18039205349">Call Now</a>
+    <a class="btn btn-primary" href="#schedule-service">Free Estimate</a>
+  </div>
+
+  <iframe name="hiddenSubmitFrame" id="hiddenSubmitFrame" style="display:none; width:0; height:0; border:0;" title="Hidden CRM submission frame"></iframe>
+
+  <script>
+    // ==========================================================
+    // HHI COMFORT SOLUTION — WORKING DIRECT CRM FORM POST
+    // Website form → Google Apps Script Web App → Google Sheets + Emails
+    // ==========================================================
+
+    // IMPORTANT: This must match your CURRENT Apps Script Web App URL ending in /exec.
+    // If you deploy a new Apps Script Web App and receive a different URL, replace this value.
+    const GOOGLE_APPS_SCRIPT_WEB_APP_URL = "PASTE_YOUR_CURRENT_DEPLOYED_WEB_APP_URL_ENDING_IN_EXEC";
+
+    function generateClientLeadId() {
+      const stamp = new Date().toISOString().replace(/[-:.TZ]/g, "").slice(0, 14);
+      const random = Math.random().toString(36).slice(2, 8).toUpperCase();
+      return "WEB-" + stamp + "-" + random;
+    }
+
+    function handleServiceForm() {
+      const form = document.getElementById("serviceRequestForm");
+      const success = document.getElementById("successMessage");
+      const error = document.getElementById("errorMessage");
+      const submitButton = document.getElementById("submitButton");
+      const submittedAtField = document.getElementById("submittedAtField");
+      const clientLeadIdField = document.getElementById("clientLeadIdField");
+
+      if (!form) return;
+
+      function isMissingWebAppUrl() {
+        return !GOOGLE_APPS_SCRIPT_WEB_APP_URL || GOOGLE_APPS_SCRIPT_WEB_APP_URL.includes("PASTE_YOUR_") || !GOOGLE_APPS_SCRIPT_WEB_APP_URL.includes("/exec");
+      }
+
+      // Keep the form action controlled from one place.
+      form.setAttribute("action", GOOGLE_APPS_SCRIPT_WEB_APP_URL);
+      form.setAttribute("method", "POST");
+      form.setAttribute("target", "hiddenSubmitFrame");
+
+      form.addEventListener("submit", function (event) {
+        if (isMissingWebAppUrl()) {
+          event.preventDefault();
+          if (error) {
+            error.style.display = "block";
+            error.textContent = "Website CRM connection is missing the current Google Apps Script Web App URL. Paste the /exec URL into GOOGLE_APPS_SCRIPT_WEB_APP_URL in index.html.";
+            error.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+          return;
+        }
+
+        if (submittedAtField) submittedAtField.value = new Date().toISOString();
+        if (clientLeadIdField) clientLeadIdField.value = generateClientLeadId();
+
+        if (success) success.style.display = "none";
+        if (error) error.style.display = "none";
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = "Sending...";
+        }
+
+        // Direct form POST is the method that already worked for your Google Sheet + owner email.
+        // This confirmation appears after Apps Script has time to receive the submission.
+        setTimeout(function () {
+          form.reset();
+
+          if (success) {
+            success.style.display = "block";
+            success.textContent = "Thank you — your service request has been received. We appreciate you reaching out to HHI Comfort Solution. A member of our team will be in touch as soon as possible to confirm your information, review the details, verify the service address, and lock in the best appointment window.";
+            success.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Service Request";
+          }
+        }, 2200);
+      });
+    }
+
+    handleServiceForm();
+  </script>
+
+</body>
+</html>      --radius: 22px;
+      --radius-lg: 34px;
+      --max: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #ffffff;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .top-alert {
+      background: linear-gradient(90deg, var(--orange), #ff8b3d);
+      color: white;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      font-size: 0.92rem;
+      text-align: center;
+      padding: 9px 14px;
+    }
+
+    .top-alert a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(6, 43, 95, 0.09);
+    }
+
+    .nav {
+      min-height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      width: 244px;
+    }
+
+    .brand img {
+      width: 239px;
+      height: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 8px;
       font-weight: 950;
       color: var(--navy);
