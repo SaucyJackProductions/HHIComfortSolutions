@@ -36,7 +36,7 @@
       --shadow: 0 24px 70px rgba(3, 25, 54, 0.18);
       --radius: 22px;
       --radius-lg: 34px;
-      --max: 1240px;
+      --max: 1440px;
     }
 
     * {
@@ -97,34 +97,37 @@
     }
 
     .nav {
-      min-height: 96px;
+      min-height: 148px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 18px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       flex-shrink: 0;
-      width: 244px;
+      width: 475px;
     }
 
     .brand img {
-      width: 239px;
+      width: 470px;
+      max-height: 132px;
       height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 24px rgba(3, 25, 54, 0.14));
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
+      gap: 8px;
       font-weight: 950;
       color: var(--navy);
-      font-size: 0.82rem;
-      letter-spacing: 0.002em;
+      font-size: 0.80rem;
+      letter-spacing: 0.001em;
       text-transform: uppercase;
       white-space: nowrap;
       flex: 1;
@@ -1160,27 +1163,46 @@
     }
 
     @media (max-width: 1320px) {
+      .nav {
+        min-height: 122px;
+        gap: 12px;
+      }
+
       .brand {
-        width: 210px;
+        width: 338px;
       }
 
       .brand img {
-        width: 206px;
+        width: 334px;
+        max-height: 106px;
       }
 
       .nav-links {
-        gap: 7px;
-        font-size: 0.74rem;
+        gap: 6px;
+        font-size: 0.72rem;
         letter-spacing: 0;
       }
 
       .btn {
-        padding: 10px 11px;
-        font-size: 0.76rem;
+        padding: 10px 10px;
+        font-size: 0.74rem;
       }
     }
 
     @media (max-width: 1130px) {
+      .nav {
+        min-height: 118px;
+      }
+
+      .brand {
+        width: 340px;
+      }
+
+      .brand img {
+        width: 336px;
+        max-height: 104px;
+      }
+
       .nav-links {
         display: none;
       }
@@ -1226,15 +1248,16 @@
       }
 
       .nav {
-        min-height: 78px;
+        min-height: 108px;
       }
 
       .brand {
-        width: 166px;
+        width: 228px;
       }
 
       .brand img {
-        width: 164px;
+        width: 224px;
+        max-height: 86px;
       }
 
       .nav-actions .btn-blue {
