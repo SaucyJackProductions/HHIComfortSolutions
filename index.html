@@ -98,21 +98,21 @@
 
     .nav {
       min-height: 148px;
-      display: flex;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
       align-items: center;
-      justify-content: space-between;
-      gap: 18px;
+      gap: 22px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       flex-shrink: 0;
-      width: 475px;
+      width: 455px;
     }
 
     .brand img {
-      width: 470px;
+      width: 448px;
       max-height: 132px;
       height: auto;
       object-fit: contain;
@@ -123,14 +123,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: clamp(8px, 0.8vw, 13px);
       font-weight: 950;
       color: var(--navy);
-      font-size: 0.80rem;
-      letter-spacing: 0.001em;
+      font-size: clamp(0.86rem, 0.98vw, 1rem);
+      letter-spacing: 0.004em;
       text-transform: uppercase;
       white-space: nowrap;
-      flex: 1;
       min-width: 0;
     }
 
@@ -158,8 +157,15 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: flex-end;
+      gap: 12px;
       flex-shrink: 0;
+    }
+
+    .nav-actions .btn {
+      font-size: 1rem;
+      padding: 13px 20px;
+      min-height: 52px;
     }
 
     .btn {
@@ -1165,27 +1171,33 @@
     @media (max-width: 1320px) {
       .nav {
         min-height: 122px;
-        gap: 12px;
+        gap: 14px;
       }
 
       .brand {
-        width: 338px;
+        width: 345px;
       }
 
       .brand img {
-        width: 334px;
-        max-height: 106px;
+        width: 340px;
+        max-height: 108px;
       }
 
       .nav-links {
-        gap: 6px;
-        font-size: 0.72rem;
+        gap: 8px;
+        font-size: 0.78rem;
         letter-spacing: 0;
       }
 
       .btn {
-        padding: 10px 10px;
-        font-size: 0.74rem;
+        padding: 10px 12px;
+        font-size: 0.78rem;
+      }
+
+      .nav-actions .btn {
+        font-size: 0.82rem;
+        padding: 10px 13px;
+        min-height: 48px;
       }
     }
 
@@ -1859,7 +1871,7 @@
               Something did not submit correctly. Please call 803-920-5349 or email info@hhicomfortsolution.com.
             </div>
 
-            <form id="serviceRequestForm" action="" method="POST" target="hiddenSubmitFrame">
+            <form id="serviceRequestForm" action="https://script.google.com/macros/s/AKfycbxMwDTiyhC3e16vRiLO9ssEMdZiLr_Ks2MsSH7_tkU_zfD6x5KR3I7uGVGx6hxW6rk0BA/exec" method="POST" target="hiddenSubmitFrame">
               <input type="hidden" name="leadSource" value="Website Backup Service Request Form" />
               <input type="hidden" name="business" value="HHI Comfort Solution" />
               <input type="hidden" name="website" value="hhicomfortsolution.com" />
@@ -2056,7 +2068,7 @@
 
     // IMPORTANT: This must match your CURRENT Apps Script Web App URL ending in /exec.
     // If you deploy a new Apps Script Web App and receive a different URL, replace this value.
-    const GOOGLE_APPS_SCRIPT_WEB_APP_URL = "PASTE_YOUR_CURRENT_DEPLOYED_WEB_APP_URL_ENDING_IN_EXEC";
+    const GOOGLE_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxMwDTiyhC3e16vRiLO9ssEMdZiLr_Ks2MsSH7_tkU_zfD6x5KR3I7uGVGx6hxW6rk0BA/exec";
 
     function generateClientLeadId() {
       const stamp = new Date().toISOString().replace(/[-:.TZ]/g, "").slice(0, 14);
